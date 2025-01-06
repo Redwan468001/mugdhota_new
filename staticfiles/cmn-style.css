@@ -1,0 +1,200 @@
+
+input, button, select, textarea {
+  font-family: 'Kalpurush', 'Bangla', 'Baloo Da 2';font-size: inherit; line-height: inherit; padding: 5px;
+}
+
+.flex{
+    display: flex;
+}
+
+/* Width */
+.wrapper_20{
+    width: 20%;
+}
+.wrapper_25{
+    width: 25%;
+}
+.wrapper_33{
+    width: 33.33%;
+}
+.wrapper_40{
+    width: 40%;
+}
+.wrapper_50{
+    width: 50%;
+}
+.wrapper_60{
+    width: 60%;
+}
+.wrapper_66{
+    width: 66.66%;
+}
+.wrapper_70{
+    width: 70%;
+}
+.wrapper_80{
+    width: 80%;
+}
+.wrapper_100{
+    width: 100%;
+}
+
+/* Padding */
+.no_pad{
+    margin: 0;
+}
+.no_pad{
+    padding: 0;
+}
+/* Padding all */
+.pd_all_5{
+    padding: 5px;
+}
+.pd_all_10{
+    padding: 10px;
+}
+.pd_all_15{
+    padding: 15px;
+}
+.pd_all_20{
+    padding: 20px;
+}
+.pd_all_25{
+    padding: 25px;
+}
+.pd_all_30{
+    padding: 30px;
+}
+.pd_all_35{
+    padding: 35px;
+}
+
+/* Padding left */
+
+.pd_left_5{
+    padding-left: 5px;
+}
+.pd_left_10{
+    padding-left: 10px;
+}
+.pd_left_15{
+    padding-left: 15px;
+}
+.pd_left_20{
+    padding-left: 20px;
+}
+.pd_left_25{
+    padding-left: 25px;
+}
+.pd_left_30{
+    padding-left: 30px;
+}
+.pd_left_35{
+    padding-left: 35px;
+}
+
+/* Padding right */
+.pd_right_5{
+    padding-right: 5px;
+}
+.pd_right_10{
+    padding-right: 10px;
+}
+.pd_right_15{
+    padding-right: 15px;
+}
+.pd_right_20{
+    padding-right: 20px;
+}
+.pd_right_25{
+    padding-right: 25px;
+}
+.pd_right_30{
+    padding-right: 20px;
+}
+.pd_right_35{
+    padding-right: 35px;
+}
+
+/* margin all */
+.no_mar{
+    margin: 0;
+}
+.mr_all_5{
+    margin: 5px;
+}
+.mr_all_10{
+    margin: 10px;
+}
+.mr_all_15{
+    margin: 15px;
+}
+.mr_all_20{
+    margin: 20px;
+}
+.mr_all_25{
+    margin: 25px;
+}
+.mr_all_30{
+    margin: 30px;
+}
+.mr_all_35{
+    margin: 35px;
+}
+
+/* margin left */
+
+.mr_left_5{
+    margin-left: 5px;
+}
+.mr_left_10{
+    margin-left: 10px;
+}
+.mr_left_15{
+    margin-left: 15px;
+}
+.mr_left_20{
+    margin-left: 20px;
+}
+.mr_left_25{
+    margin-left: 25px;
+}
+.mr_left_30{
+    margin-left: 30px;
+}
+.mr_left_35{
+    margin-left: 35px;
+}
+
+/* margin right */
+.mr_right_5{
+    margin-right: 5px;
+}
+.mr_right_10{
+    margin-right: 10px;
+}
+.mr_right_15{
+    margin-right: 15px;
+}
+.mr_right_20{
+    margin-right: 20px;
+}
+.mr_right_25{
+    margin-right: 25px;
+}
+.mr_right_30{
+    margin-right: 20px;
+}
+.mr_right_35{
+    margin-right: 35px;
+}
+
+.mr_top_-20{
+    margin-top: -20px;
+}
+.mr_left_-20{
+    margin-left: -20px;
+}
+.mr_right_-20{
+    margin-right: -20px;
+}

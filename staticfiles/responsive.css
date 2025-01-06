@@ -1,0 +1,117 @@
+@media (max-width: 480px) {
+
+
+.desk{
+    display: none;
+}
+.mob{
+    display: block;
+}
+.container{
+    width: 100%;
+    margin: 0 10px;
+}
+.res_width_100{
+    width: 100% !important;
+}
+.res_no_pd{
+    padding: 0;
+}
+.res_no_mar{
+    margin: 0;
+}
+
+/* Mobile Menu */
+.mugdhota_web_info_left{
+    width: 60%;
+}
+.sm_manu{
+    width: 40%;
+    float: right;
+}
+.sm_mobile i{
+    text-align: right;
+    width: 100%;
+    font-size: 22px;
+    padding: 17px 0 0 0;
+}
+.mob_ms_top{
+    background-color: rgb(23, 23, 23);
+    padding: 10px;
+    color: #fff;
+}
+.mob_ms_top_sec .main_search{
+    width: 100%;
+}
+.today p{
+    color: #fff;
+    font-size: 15px;
+    font-weight: 400;
+}
+.info_menu{
+    display: flex;
+}
+.info_menu ul li{
+    float: left
+}
+.info_menu ul li a{
+    color: #fff;
+    padding: 0px 10px;
+    border-right: 1px solid #ddd;
+}
+.info_menu ul li a{
+    color: #fff;
+    padding: 0px 10px;
+    border-right: 1px solid #ddd;
+}
+.info_menu ul li:first-child a{
+    padding-left: 0px;
+}
+.info_menu ul li:last-child a{
+    border-right: none;
+}
+
+/* Slider */
+.slider_section{
+    width: 100%;
+}
+.slide_img{
+    width: 100% !important;
+}
+.slide_img img{
+    width: 100%;
+    height: 200px !important;
+}
+button.slide_prev, button.slide_next{
+    top: 32%;
+    padding: 5px 10px 5px 5px;
+    border-radius: 5px;
+}
+.slide_content{
+    height: auto;
+    padding: 5px 10px;
+}
+
+/* Content Style 2 */
+.sng_mcs2c{
+    width: 100%;
+    display: inline-block;
+    margin-bottom: 30px;
+}
+.sng_mugdhota_cnts{
+    margin-bottom: 40px;
+}
+.sng_mcs2c_img img{
+    width: 100%;
+    height: auto !important;
+}
+.sng_mcs2c_cnt{
+    padding: 0 !important;
+    margin-top: 10px;
+}
+
+.mugdhota_cnt_style_3{
+    margin: 0;
+}
+
+}

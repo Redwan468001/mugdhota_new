@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/flexslider.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'cmn-style.css' %}">
+    <link rel="stylesheet" href="{% static 'responsive.css' %}">
+
+    <!-- Slick Slider CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+
+    <title>Mugdhota</title>
+</head>
+<body>
+
+    <!-- Header Section -->
+
+    <div class="container_header">
+        <div class="container">
+
+            <div id="header">
+                <div class="header_section">
+        
+                    <div class="mugdhota_web_info_left">
+                        <div class="mugdhota_logo">
+                            <a href="#"><img src="images/mugdhota.PNG" alt=""></a>
+                        </div>
+                    </div>
+
+                    <div class="sm_manu mob">
+                        <div class="sm_mobile">
+                            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                                <i id="icon" class="fa fa-bars"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="mugdhota_web_info_middle desk">
+                        <div class="main_search">
+                            <input type="search">
+                            <button type="submit">Search</button>
+                        </div>
+                    </div>
+        
+                    <div class="mugdhota_web_info_right desk">
+                        <div class="user_info">
+                            <a href="#">
+                                <span>Log-in</span>
+                                <i class="fa fa-user-circle-o"></i>
+                            </a>
+                        </div>
+                    </div>
+        
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Main Menu -->
+
+        <div class="container_nav desk">
+            <div class="container">
+
+                <div id="mugdhota_menu_section">
+                    <div class="main_manu_section">
+                        <nav class="mugdhota_top_nav">
+                            <ul>
+                                <li class="mugdhota_main_manu_items"><a href="#">Home<i class="material-icons">expand_more</i></a>
+                                    
+                                    <!-- Sub Menu -->
+                                    <div id="mugdhota_sub_menu" class="top_menu">
+                                        <div class="mugdhota_sub_menu_section">
+                                            <div class="mugdhota_sub_menu_items_section">
+                                                <div class="mugdhota_sub_menu_items overview_nav_1">
+                                                    <ul>
+                                                        <li><a href="#item1" class="active_nav">Law</a></li>
+                                                        <li><a href="#item2">Medical</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                            <!-- Sub Menu section with Content -->
+                                            <div class="sub_menu_cnt_section content content1">
+
+                                                <!-- Overview item 1 -->
+                                                <div class="mugdhota_sub_menu_cnts_section msmcs_section" id="item1">
+
+                                                    <div class="mugdhota_sub_menu_cnts">
+                                                        <div class="sng_mugdhota_sub_menu_cnts">
+                                                            <div class="msmc_img">
+                                                                <img src="simg/img1.jpg" alt="">
+                                                            </div>
+                                                            <div class="msmc_cnt">
+                                                                <h3>The standard Lorem Ipsum, used since the 1500s</h3>
+                                                                <p>Music - Feb 18</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="mugdhota_sub_menu_cnts">
+                                                        <div class="sng_mugdhota_sub_menu_cnts">
+                                                            <div class="msmc_img">
+                                                                <img src="simg/img2.jpg" alt="">
+                                                            </div>
+                                                            <div class="msmc_cnt">
+                                                                <h3>The standard Lorem Ipsum, used since the 1500s</h3>
+                                                                <p>Music - Feb 18</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="mugdhota_sub_menu_cnts">
+                                                        <div class="sng_mugdhota_sub_menu_cnts">
+                                                            <div class="msmc_img">
+                                                                <img src="simg/img3.jpg" alt="">
+                                                            </div>
+                                                            <div class="msmc_cnt">
+                                                                <h3>The standard Lorem Ipsum, used since the 1500s</h3>
+                                                                <p>Music - Feb 18</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="mugdhota_sub_menu_cnts">
+                                                        <div class="sng_mugdhota_sub_menu_cnts">
+                                                            <div class="msmc_img">
+                                                                <img src="simg/img4.jpeg" alt="">
+                                                            </div>
+                                                            <div class="msmc_cnt">
+                                                                <h3>The standard Lorem Ipsum, used since the 1500s</h3>
+                                                                <p>Music - Feb 18</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <!-- End Overview item 1 -->
+                                                
+                                                <!-- Overview item 2 -->
+                                                <div class="mugdhota_sub_menu_cnts_section msmcs_section" id="item2">
+
+                                                    <div class="mugdhota_sub_menu_cnts">
+                                                        <div class="sng_mugdhota_sub_menu_cnts">
+                                                            <div class="msmc_img">
+                                                                <img src="simg/img2.jpg" alt="">
+                                                            </div>
+                                                            <div class="msmc_cnt">
+                                                                <h3>The standard Lorem Ipsum, used since the 1500s</h3>
+                                                                <p>Music - Feb 18</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="mugdhota_sub_menu_cnts">
+                                                        <div class="sng_mugdhota_sub_menu_cnts">
+                                                            <div class="msmc_img">
+                                                                <img src="simg/img3.jpg" alt="">
+                                                            </div>
+                                                            <div class="msmc_cnt">
+                                                                <h3>The standard Lorem Ipsum, used since the 1500s</h3>
+                                                                <p>Music - Feb 18</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="mugdhota_sub_menu_cnts">
+                                                        <div class="sng_mugdhota_sub_menu_cnts">
+                                                            <div class="msmc_img">
+                                                                <img src="simg/img1.jpg" alt="">
+                                                            </div>
+                                                            <div class="msmc_cnt">
+                                                                <h3>The standard Lorem Ipsum, used since the 1500s</h3>
+                                                                <p>Music - Feb 18</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="mugdhota_sub_menu_cnts">
+                                                        <div class="sng_mugdhota_sub_menu_cnts">
+                                                            <div class="msmc_img">
+                                                                <img src="simg/img4.jpeg" alt="">
+                                                            </div>
+                                                            <div class="msmc_cnt">
+                                                                <h3>The standard Lorem Ipsum, used since the 1500s</h3>
+                                                                <p>Music - Feb 18</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <!-- End Overview item 2 -->
+                                                
+                                            </div>
+                                            
+                                            <!-- End Sub Menu section with Content -->
+
+                                        </div>
+                                    </div>
+                                    <!-- End Sub Menu -->
+
+                                </li>
+                                <li class="mugdhota_main_manu_items"><a href="#">About<i class="material-icons">expand_more</i></a>
+                                
+                                    <!-- Sub Menu -->
+                                    <div id="mugdhota_sub_menu" class="top_menu">
+                                        <div class="mugdhota_sub_menu_section">
+                                            <div class="mugdhota_sub_menu_items_section">
+                                                <div class="mugdhota_sub_menu_items overview_nav_2">
+                                                    <ul>
+                                                        <li><a href="#item1" class="active_nav">Novel</a></li>
+                                                        <li><a href="#item2">Story</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                            <!-- Sub Menu section with Content -->
+                                            <div class="sub_menu_cnt_section content content2">
+
+                                                <!-- Overview item 1 -->
+                                                <div class="mugdhota_sub_menu_cnts_section msmcs_section" id="item1">
+
+                                                    <div class="mugdhota_sub_menu_cnts">
+                                                        <div class="sng_mugdhota_sub_menu_cnts">
+                                                            <div class="msmc_img">
+                                                                <img src="simg/img1.jpg" alt="">
+                                                            </div>
+                                                            <div class="msmc_cnt">
+                                                                <h3>The standard Lorem Ipsum, used since the 1500s</h3>
+                                                                <p>Music - Feb 18</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="mugdhota_sub_menu_cnts">
+                                                        <div class="sng_mugdhota_sub_menu_cnts">
+                                                            <div class="msmc_img">
+                                                                <img src="simg/img2.jpg" alt="">
+                                                            </div>
+                                                            <div class="msmc_cnt">
+                                                                <h3>The standard Lorem Ipsum, used since the 1500s</h3>
+                                                                <p>Music - Feb 18</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="mugdhota_sub_menu_cnts">
+                                                        <div class="sng_mugdhota_sub_menu_cnts">
+                                                            <div class="msmc_img">
+                                                                <img src="simg/img3.jpg" alt="">
+                                                            </div>
+                                                            <div class="msmc_cnt">
+                                                                <h3>The standard Lorem Ipsum, used since the 1500s</h3>
+                                                                <p>Music - Feb 18</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="mugdhota_sub_menu_cnts">
+                                                        <div class="sng_mugdhota_sub_menu_cnts">
+                                                            <div class="msmc_img">
+                                                                <img src="simg/img4.jpeg" alt="">
+                                                            </div>
+                                                            <div class="msmc_cnt">
+                                                                <h3>The standard Lorem Ipsum, used since the 1500s</h3>
+                                                                <p>Music - Feb 18</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <!-- End Overview item 1 -->
+                                                
+                                                <!-- Overview item 2 -->
+                                                <div class="mugdhota_sub_menu_cnts_section msmcs_section" id="item2">
+
+                                                    <div class="mugdhota_sub_menu_cnts">
+                                                        <div class="sng_mugdhota_sub_menu_cnts">
+                                                            <div class="msmc_img">
+                                                                <img src="simg/img2.jpg" alt="">
+                                                            </div>
+                                                            <div class="msmc_cnt">
+                                                                <h3>The standard Lorem Ipsum, used since the 1500s</h3>
+                                                                <p>Music - Feb 18</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="mugdhota_sub_menu_cnts">
+                                                        <div class="sng_mugdhota_sub_menu_cnts">
+                                                            <div class="msmc_img">
+                                                                <img src="simg/img3.jpg" alt="">
+                                                            </div>
+                                                            <div class="msmc_cnt">
+                                                                <h3>The standard Lorem Ipsum, used since the 1500s</h3>
+                                                                <p>Music - Feb 18</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="mugdhota_sub_menu_cnts">
+                                                        <div class="sng_mugdhota_sub_menu_cnts">
+                                                            <div class="msmc_img">
+                                                                <img src="simg/img1.jpg" alt="">
+                                                            </div>
+                                                            <div class="msmc_cnt">
+                                                                <h3>The standard Lorem Ipsum, used since the 1500s</h3>
+                                                                <p>Music - Feb 18</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="mugdhota_sub_menu_cnts">
+                                                        <div class="sng_mugdhota_sub_menu_cnts">
+                                                            <div class="msmc_img">
+                                                                <img src="simg/img4.jpeg" alt="">
+                                                            </div>
+                                                            <div class="msmc_cnt">
+                                                                <h3>The standard Lorem Ipsum, used since the 1500s</h3>
+                                                                <p>Music - Feb 18</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <!-- End Overview item 2 -->
+                                                
+                                            </div>
+                                            
+                                            <!-- End Sub Menu section with Content -->
+
+                                        </div>
+                                    </div>
+                                    <!-- End Sub Menu -->
+                                     
+                                </li>
+                                <li class="mugdhota_main_manu_items"><a href="#">Home<i class="material-icons">expand_more</i></a></li>
+                                <li class="mugdhota_main_manu_items"><a href="#">Home<i class="material-icons">expand_more</i></a></li>
+                                <li class="mugdhota_main_manu_items"><a href="#">Home<i class="material-icons">expand_more</i></a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- End Main Menu -->
+
+    </div>
+
+    
+    <!-- Mobile Manu -->
+    <div id="mob_manu_items">
+        <div class="mob_manu_section">
+            
+            <div class="mob_ms_top">
+                <div class="mob_ms_top_sec">
+                    <div class="main_search">
+                        <input type="search">
+                        <button type="submit">Search</button>
+                    </div>
+                    <div class="today">
+                        <p>1st January, 2025</p>
+                    </div>
+                    <div class="info_menu">
+                        <ul>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Sign up</a></li>
+                            <li><a href="#">Log in</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mob_ms_bottom">
+                <div class="mob_ms_bottom_menu_items">
+                    <ul>
+                        <li><a href="#">News</a></li>
+                        <li><a href="#">Contant</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Cart</a></li>
+                        <li><a href="#">News</a></li>
+                        <li><a href="#">News</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- End Header Section -->
+    
+
+    {% block content %}
+    {% endblock content %}
+
+
+    <script src="{% static 'assets/js/script.js' %}"></script>
+    <!-- jQuery -->
+    <script src="{% static 'assets/js/jquery-3.6.0.min.js' %}"></script>
+
+    <!-- Slick Slider JS -->
+    <script src="{% static 'assets/js/slick.js' %}"></script>
+
+    <!-- Slider Js -->
+    <script>
+
+        $(document).ready(function () {
+            $('.slider_section').slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: false, // Disable default arrows
+                autoplay: true,
+                autoplaySpeed: 3000,
+                fade: false, 
+                infinity: true,
+                cssEase: 'ease-in-out',
+            });
+
+            // Custom buttons
+            $('.slide_prev').click(function () {
+                $('.slick-slider').slick('slickPrev');
+            });
+
+            $('.slide_next').click(function () {
+                $('.slick-slider').slick('slickNext');
+            });
+        });
+
+    </script>
+
+    <!-- Mobile Manu -->
+    <script>
+        function myFunction() {
+            var x = document.getElementById("mob_manu_items");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
+        
+            const icon = document.getElementById('icon');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-close');
+            } else {
+                icon.classList.remove('fa-close');
+                icon.classList.add('fa-bars'); // Changes back to the bars icon
+            }
+        }
+            
+    </script>
+
+    <script>
+        
+// Script for Manu
+// Function to initializw an overview navigation menu
+function initializeOverviewNav(navSelector, sectionSelector) {
+    const navLinks = document.querySelectorAll(`${navSelector} a`);
+    const sections = document.querySelectorAll(sectionSelector);
+
+    // Function to show the active section
+    function setActiveSection(activeId) {
+        sections.forEach((section) => {
+            if (section.id === activeId) {
+                section.classList.add("active_ov");
+            } else {
+                section.classList.remove("active_ov");
+            }
+        }); 
+    }
+
+    // Add click listeners to navigation links
+    navLinks.forEach((link) => {
+        link.addEventListener("click", (event) => {
+            event.preventDefault();
+            const targetId = link.getAttribute("href").substring(1);
+            setActiveSection(targetId);
+        });
+    });
+
+    // Show the first section by default
+    if (sections.length > 0) {
+        setActiveSection(sections[0].id);
+    }
+    
+    // Add active class to link
+    navLinks.forEach((link) => {
+        link.addEventListener("click", (event) => {
+            // Remove the 'active' class from all links
+            navLinks.forEach((nav) => nav.classList.remove("active_nav"));
+            // Add the 'active' class to the clicked link
+            link.classList.add("active_nav");
+        });
+    });
+
+}
+
+// Initialize multiple navigation menus
+initializeOverviewNav(".overview_nav_1", ".content1 .msmcs_section");
+initializeOverviewNav(".overview_nav_2", ".content2 .msmcs_section");
+// initializeOverviewNav(".content_nav_1", ".m_content1 .msmcs_section");
+
+// End Script for Manu
+
+
+// Script for Overview content
+function initializeContentNav(cntNavSelector, cntSelector) {
+    const cntNavLinks = document.querySelectorAll(`${cntNavSelector} a`);
+    const cntSections = document.querySelectorAll(cntSelector);
+
+    // Function to show the active section
+    function setActiveSection(activeId) {
+        cntSections.forEach((cntsection) => {
+            if (cntsection.id === activeId) {
+                cntsection.classList.add("active_ov");
+            } else {
+                cntsection.classList.remove("active_ov")
+            }
+        });
+    }
+
+    // Add Click lintener to navigation links
+    cntNavLinks.forEach((link) => {
+        link.addEventListener("click", (event) => {
+            event.preventDefault();
+            const targetId = link.getAttribute("href").substring(1);
+            setActiveSection(targetId)
+        });
+    });
+
+    // Show the first item by default
+    if (cntSections.length > 0){
+        setActiveSection(cntSections[0].id)
+    }
+
+    // All class to nav after click
+    cntNavLinks.forEach((link) => {
+        link.addEventListener("click", (event) => {
+            // Remove the 'active' class from all links
+            cntNavLinks.forEach((nav) => nav.classList.remove("active_cnt_nav"));
+            // Add the 'active' class to the clicked link
+            link.classList.add("active_cnt_nav")
+        });
+    });
+}
+
+initializeContentNav(".content_nav_1", ".m_content1 .msmcs_section");
+
+// End Script for Overview content
+
+
+
+    </script>
+
+
+</body>
+</html>
