@@ -1,0 +1,12 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+<form action="" method="POST" enctype="multipart/form-data" class="form">
+    {% csrf_token %}
+    <input type="tel" name="phone" pattern="01[0-9]{9}" maxlength="11" placeholder="Phone number. e.g. 01234567891" required>
+    <input type="password" name="password" id="passwordInput" placeholder="Password">
+    <button type="submit">Log In</button>
+</form>
+
+{% endblock content %}

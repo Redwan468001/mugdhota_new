@@ -1,0 +1,24 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+<form method="post" action="{% url 'verify_otp' %}">
+    {% csrf_token %}
+    <div class="com_form_fields">
+        <h2>Enter OTP:</h2>
+        <input type="text" id="otp" name="otp" placeholder="Enter otp that send your number" required>
+        {% if messages %}
+            <ul class="messages" style="display:inline-block;margin: 5px 0 0 0">
+            {% for message in messages %}
+            <li style="color:red" {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+
+    <div class="submit_button">
+        <button type="submit">Verify OTP</button>
+    </div>
+</form>
+
+{% endblock content %}

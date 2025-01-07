@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('config.urls')),
     path('medical/', include('MedicalInsight.urls')),
+    path("user/", include('User.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
 ]
 

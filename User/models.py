@@ -27,6 +27,9 @@ class User(AbstractUser):
     is_author = models.BooleanField(default=False)
     is_subscriber = models.BooleanField(default=True)
 
+    USERNAME_FIELD = 'phone'
+    REQUIRED_FIELDS = ['username']
+
     def get_user_role(self):
         if self.is_admin:
             return "Admin"
