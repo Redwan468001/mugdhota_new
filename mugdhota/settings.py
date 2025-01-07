@@ -78,7 +78,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mugdhota.wsgi.application'
 
+
+
 AUTH_USER_MODEL = 'User.User'
+LOGIN_URL = '/user/log-in/'
 
 
 # Database

@@ -17,7 +17,7 @@ class User(AbstractUser):
     name = models.CharField(max_length=255, blank=False, null=False)
     email = models.EmailField()
     phone_validator = RegexValidator(regex=r'^\+?1?\d{11}', message="Phone number must be entered in the format: '01234567899'. Up to 11 digits allowed.")
-    phone = models.CharField(validators=[phone_validator], max_length=11, unique=True, blank=False, null=False)
+    phone = models.CharField(validators=[phone_validator], max_length=11, null=False, unique=True)
     bio = models.TextField()
     gender = models.ForeignKey(Gender, on_delete=models.CASCADE, blank=True, null=True)
     joined = models.DateField(auto_now=True)
@@ -28,7 +28,6 @@ class User(AbstractUser):
     is_subscriber = models.BooleanField(default=True)
 
     USERNAME_FIELD = 'phone'
-    REQUIRED_FIELDS = ['username']
 
     def get_user_role(self):
         if self.is_admin:

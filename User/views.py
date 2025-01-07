@@ -56,12 +56,14 @@ def verify_otp(request):
         if user_input_otp == stored_otp:
             user_data = request.session.get('user_info', {})
 
-            user = User.objects.create_user(
-                username = user_data['username'],
-                name = user_data['name'],
-                email = user_data['email'],
-                phone = user_data['phone_number'],
+            user = User.objects.create(
+                username=user_data['username'],
+                name=user_data['name'],
+                email=user_data['email'],
+                phone=user_data['phone_number'],
             )
+            user.set_password(request.POST.get('password'))  # Set and hash the password
+            user.save()
 
             messages.success(request, 'OTP verify Successfully')
             login(request, user)
@@ -78,27 +80,35 @@ def verify_otp(request):
 
 
 # Log-in view
-def log_in(request):
+def logIn(request):
 
     if request.method == "POST":
         phone = request.POST.get('phone')
         password = request.POST.get('password')
 
+        try:
+            user = User.objects.get(phone=phone)
+        except:
+            messages.error(request, 'User does not exist')
+
         # Authenticate user
-        user = authenticate(phone=phone, password=password)
+        user = authenticate(request, phone=phone, password=password)
 
         if user is not None:
             login(request, user)
             messages.success(request, f"Welcome back {user.name}")
             next_url = request.GET.get('next', reverse('home'))
             return redirect(next_url)
-
         else:
             messages.error(request, "Invalid phone or password. Please try again.")
 
     return render(request, 'log_in.html')
 
 
+# Log out view
+def log_out(request):
+    logout(request)
+    return redirect('home')
 
 
 

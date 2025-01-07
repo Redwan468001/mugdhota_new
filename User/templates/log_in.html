@@ -2,11 +2,42 @@
 {% load static %}
 {% block content %}
 
-<form action="" method="POST" enctype="multipart/form-data" class="form">
+<form class="form" action="" method="POST">
     {% csrf_token %}
-    <input type="tel" name="phone" pattern="01[0-9]{9}" maxlength="11" placeholder="Phone number. e.g. 01234567891" required>
-    <input type="password" name="password" id="passwordInput" placeholder="Password">
-    <button type="submit">Log In</button>
+    <div class="signinup_form_field">
+        <h2>Phone</h2>
+        <div class="sign_ff">
+            <input type="text" name="phone" pattern="01[0-9]{9}" maxlength="11" placeholder="Phone number. e.g. 01234567891" required>
+        </div>
+    </div>
+    <div class="signinup_form_field">
+        <h2>Password</h2>
+        <div class="sign_ff password-field">
+            <input type="password" name="password" id="passwordInput" placeholder="Password">
+            <button type="button" onclick="togglePasswordVisibility()" id="showHideButton"><i class="fa fa-eye"></i></button>
+        </div>
+    </div>
+
+    <div class="sign_form_action">
+        <button type="submit">Login</button>
+        <a class="forgot_pass" href="">Forgot Password</a>
+        <h2 style="text-align:center;">Not registered? <a class="create_account" href=""> Create a account </a></h2>
+    </div>
 </form>
 
-{% endblock content %}
+<script>
+    function togglePasswordVisibility(){
+        var passwordInput = document.getElementById("passwordInput")
+        var showHideButton = document.getElementById("showHideButton")
+
+        if (passwordInput.type === "password"){
+            passwordInput.type = "text";
+            showHideButton.innerHTML = '<i class="fa fa-eye-slash"></i>'
+        } else {
+            passwordInput.type = "password";
+            showHideButton.innerHTML = '<i class="fa fa-eye"></i>';
+        }
+    }
+</script>
+
+{% endblock %}
