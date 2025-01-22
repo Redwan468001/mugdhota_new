@@ -55,10 +55,9 @@ h2:hover{
 
 .content_title h2{
     font-size: 20px;
-    padding: 18px 10px;
+    padding: 12px 10px;
     margin-bottom: 40px;
     border: 1px solid #ddd;
-    border-left: 4px solid red;
 }
 
 /* Header Section */
@@ -324,16 +323,16 @@ button.slide_next {
     font-weight: bold;
     font-size: 18px;
 }
-.mugdhota_content_nav>ul>li{
+.mugdhota_content_nav_sec>ul>li{
     float: left;
 }
-.mugdhota_content_nav>ul>li>a{
+.mugdhota_content_nav_sec>ul>li>a{
     display: block;
     font-size: 17px;
     padding: 5px 10px;
     color: black;
 }
-.mugdhota_content_nav>ul>li>a:hover{
+.mugdhota_content_nav_sec>ul>li>a:hover{
     color: rgb(4, 188, 4);
 }
 .cnt_view_all{
@@ -390,7 +389,7 @@ button.slide_next {
 .sng_wrc h2{
     width: 35px;
     height: 30px;
-    padding: 5px;
+    padding: 2px 5px;
     background: #6c6c6c;
     text-align: center;
     margin-right: 10px;

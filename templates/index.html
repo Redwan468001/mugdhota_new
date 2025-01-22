@@ -68,11 +68,9 @@
         </div>
 
     </div>
-
     <!-- End Slider -->
-   
+
     <!-- Content secction style 1 (Overview Nav) -->
-    
     <div class="container_full" style="margin-top: 30px;">
         <div class="container">
 
@@ -83,13 +81,20 @@
                     <div id="mugdhota_content_style1_overview">
                         <div class="mugdhota_content_style1_overview_section">
                             <div class="mugdhota_content_style1_overview_items_section">
-                                <div class="mugdhota_content_nav content_nav_1">
-                                    <ul>
-                                        <li class="cnt_index">Entertainment</li>
-                                        <li><a href="#item1" class="active_cnt_nav">Law</a></li>
-                                        <li><a href="#item2">Medical</a></li>
-                                        <li class="cnt_view_all"><a href="">View all <i class="fa fa-caret-right"></i></a></li>
-                                    </ul>
+                                <div class="mugdhota_content_nav">
+                                    <div class="mugdhota_content_nav_sec content_nav_1">
+                                        <ul>
+                                            <li class="cnt_index">Entertainment</li>
+                                            <li><a href="#item0" class="active_cnt_nav">All</a></li>
+                                            <li><a href="#item1">Story</a></li>
+                                            <li><a href="#item2">Novel</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="view_all">
+                                        <ul>
+                                            <li class="cnt_view_all"><a href="">View all <i class="fa fa-caret-right"></i></a></li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
 
@@ -97,119 +102,144 @@
                             <div class="mugdhota_content_section content m_content1">
 
                                 <!-- Overview item 1 -->
-                                <div class="mugdhota_cnts_section msmcs_section" id="item1">
-
+                                
+                                <div class="mugdhota_cnts_section msmcs_section" id="item0">
+                                    {% for post in posts|slice:":4" %}
+                                    {% if forloop.first %}
                                     <div class="mugdhota_cnts_left pd_right_20 res_no_pd res_width_100">
                                         <div class="mugdhota_cnts_left_section">
                                             <div class="sng_mugdhota_cnts">
                                                 <div class="smcl_img">
-                                                    <img src="{% static 'simg/img1.jpg' %}" alt="">
+                                                    {% if post.feature_image %}
+                                                    <img src="{{ post.feature_image.url }}" alt="">
+                                                    {% endif %}
                                                 </div>
                                                 <div class="smc_cnt">
-                                                    <h3 style="padding-top: 10px;">The standard Lorem Ipsum, used since the 1500s</h3>
-                                                    <p>Music - Feb 18</p>
+                                                    <h3 style="padding-top: 10px;">{{ post.title }}</h3>
+                                                    <p>{{ post.content|truncatechars:100 }}</p>
+                                                    <p>{{ post.category.name }} - {{ post.create_at }}</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                    {% endif %}
 
+                                    {% if not forloop.first %}
                                     <div class="mugdhota_cnts_right pd_left_20 res_no_pd res_width_100">
                                         <div class="mugdhota_cnts_right_section">
                                             
                                             <div class="sng_mugdhota_cnts_right">
                                                 <div class="smcr_img">
-                                                    <img src="{% static 'simg/img2.jpg' %}" alt="">
+                                                    <img src="{{ post.feature_image.url }}" alt="">
                                                 </div>
                                                 <div class="smcr_cnt pd_left_10">
-                                                    <h3>The standard Lorem Ipsum, used since the 1500s</h3>
-                                                    <p>Music - Feb 18</p>
+                                                    <h3>{{ post.title }}</h3>
+                                                    <p>{{ post.category.name }} - {{ post.create_at }}</p>
                                                 </div>
                                             </div>
                                             
-                                            
-                                            <div class="sng_mugdhota_cnts_right">
-                                                <div class="smcr_img">
-                                                    <img src="{% static 'simg/img3.jpg' %}" alt="">
-                                                </div>
-                                                <div class="smcr_cnt pd_left_10">
-                                                    <h3>The standard Lorem Ipsum, used since the 1500s</h3>
-                                                    <p>Music - Feb 18</p>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="sng_mugdhota_cnts_right">
-                                                <div class="smcr_img">
-                                                    <img src="{% static 'simg/img4.jpeg' %}" alt="">
-                                                </div>
-                                                <div class="smcr_cnt pd_left_10">
-                                                    <h3>The standard Lorem Ipsum, used since the 1500s</h3>
-                                                    <p>Music - Feb 18</p>
-                                                </div>
-                                            </div>
-
                                         </div>
                                     </div>
+                                    {% endif %}
+                                    {% endfor %}
 
                                 </div>
-                                <!-- End Overview item 1 -->
                                 
-                                <!-- Overview item 2 -->
-                                <div class="mugdhota_cnts_section msmcs_section" id="item2">
+                                <!-- End Overview item 1 -->
 
-                                    <div class="mugdhota_cnts_left pd_right_20">
+                                <!-- Overview item 1 -->
+                                
+                                <div class="mugdhota_cnts_section msmcs_section" id="item1">
+                                    {% for post in stories %}
+                                    {% if forloop.first %}
+                                    <div class="mugdhota_cnts_left pd_right_20 res_no_pd res_width_100">
                                         <div class="mugdhota_cnts_left_section">
                                             <div class="sng_mugdhota_cnts">
                                                 <div class="smcl_img">
-                                                    <img src="{% static 'simg/img4.jpeg' %}" alt="">
+                                                    {% if post.feature_image %}
+                                                    <img src="{{ post.feature_image.url }}" alt="">
+                                                    {% endif %}
                                                 </div>
                                                 <div class="smc_cnt">
-                                                    <h3 style="padding-top: 10px;">The standard Lorem Ipsum, used since the 1500s</h3>
-                                                    <p>Music - Feb 18</p>
+                                                    <h3 style="padding-top: 10px;">{{ post.title }}</h3>
+                                                    <p>{{ post.content|truncatechars:100 }}</p>
+                                                    <p>{{ post.category.name }} - {{ post.create_at }}</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                    {% endif %}
 
-                                    <div class="mugdhota_cnts_right pd_left_20">
+                                    {% if not forloop.first %}
+                                    <div class="mugdhota_cnts_right pd_left_20 res_no_pd res_width_100">
                                         <div class="mugdhota_cnts_right_section">
                                             
                                             <div class="sng_mugdhota_cnts_right">
                                                 <div class="smcr_img">
-                                                    <img src="{% static 'simg/img3.jpg' %}" alt="">
+                                                    <img src="{{ post.feature_image.url }}" alt="">
                                                 </div>
-                                                <div class="smcr_cnt pd_left_10 res_no_pd">
-                                                    <h3>The standard Lorem Ipsum, used since the 1500s</h3>
-                                                    <p>Music - Feb 18</p>
-                                                </div>
-                                            </div>
-                                            
-                                            
-                                            <div class="sng_mugdhota_cnts_right">
-                                                <div class="smcr_img">
-                                                    <img src="{% static 'simg/img2.jpg' %}" alt="">
-                                                </div>
-                                                <div class="smcr_cnt pd_left_10 res_no_pd">
-                                                    <h3>The standard Lorem Ipsum, used since the 1500s</h3>
-                                                    <p>Music - Feb 18</p>
+                                                <div class="smcr_cnt pd_left_10">
+                                                    <h3>{{ post.title }}</h3>
+                                                    <p>{{ post.category.name }} - {{ post.create_at }}</p>
                                                 </div>
                                             </div>
                                             
-                                            <div class="sng_mugdhota_cnts_right">
-                                                <div class="smcr_img">
-                                                    <img src="{% static 'simg/img1.jpg' %}" alt="">
-                                                </div>
-                                                <div class="smcr_cnt pd_left_10 res_no_pd">
-                                                    <h3>The standard Lorem Ipsum, used since the 1500s</h3>
-                                                    <p>Music - Feb 18</p>
-                                                </div>
-                                            </div>
-
                                         </div>
                                     </div>
+                                    {% endif %}
+                                    {% endfor %}
+
+                                </div>
+                                
+                                <!-- End Overview item 1 -->
+                                
+                                <!-- Overview item 2 -->
+                                
+                                <div class="mugdhota_cnts_section msmcs_section" id="item2">
+                                    
+                                    {% for post in novels %}
+                                    {% if forloop.first %}
+                                    <div class="mugdhota_cnts_left pd_right_20 res_no_pd res_width_100">
+                                        <div class="mugdhota_cnts_left_section">
+                                            <div class="sng_mugdhota_cnts">
+                                                <div class="smcl_img">
+                                                    {% if post.feature_image %}
+                                                    <img src="{{ post.feature_image.url }}" alt="">
+                                                    {% endif %}
+                                                </div>
+                                                <div class="smc_cnt">
+                                                    <h3 style="padding-top: 10px;">{{ post.title }}</h3>
+                                                    <p>{{ post.content|truncatechars:100 }}</p>
+                                                    <p>{{ post.category.name }} - {{ post.create_at }}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                    {% endfor %}
+
+                                    {% for post in novels|slice:":4" %}
+                                    {% if not forloop.first %}
+                                    <div class="mugdhota_cnts_right pd_left_20 res_no_pd res_width_100">
+                                        <div class="mugdhota_cnts_right_section">
+                                            
+                                            <div class="sng_mugdhota_cnts_right">
+                                                <div class="smcr_img">
+                                                    <img src="{{ post.feature_image.url }}" alt="">
+                                                </div>
+                                                <div class="smcr_cnt pd_left_10">
+                                                    <h3>{{ post.title }}</h3>
+                                                    <p>{{ post.category.name }} - {{ post.create_at }}</p>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                    {% endfor %}
 
                                 </div>
                                 <!-- End Overview item 2 -->
-                                
                             </div>
                             
                             <!-- Content -->
@@ -225,7 +255,7 @@
                 <div class="wrapper_right_section pd_left_20 res_no_pd">
                     
                     <div class="content_title">
-                        <h2>Most Popular</h2>
+                        <h2 style="border-left:4px solid #0a4be6;color:#0a4be6">Most Popular</h2>
                     </div>
 
                     <div class="wrapper_right_content">
@@ -287,7 +317,7 @@
                     <div class="mugdhota_content_style_2_cnt pd_right_30 res_no_pd">
 
                         <div class="content_title">
-                            <h2>Novel</h2>
+                            <h2 style="border-left: 4px solid #096760;color:#096760">Science Fictions</h2>
                         </div>
 
                         <div class="mcs2c">
@@ -343,7 +373,7 @@
                     <div class="mugdhota_content_style_2_cnt pd_left_30 res_no_pd">
 
                         <div class="content_title">
-                            <h2>Novel</h2>
+                            <h2 style="border-left: 4px solid #ff4500;color:#ff4500">Novel</h2>
                         </div>
 
                         <div class="mcs2c">

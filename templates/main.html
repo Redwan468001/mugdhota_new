@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/43f70b9b97.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/flexslider.css" type="text/css" media="screen">
     <link rel="stylesheet" href="{% static 'style.css' %}">
@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
 
     <title>Mugdhota</title>
+
 </head>
 <body>
 
@@ -344,9 +345,9 @@
                                     <!-- End Sub Menu -->
                                      
                                 </li>
-                                <li class="mugdhota_main_manu_items"><a href="#">Home<i class="material-icons">expand_more</i></a></li>
-                                <li class="mugdhota_main_manu_items"><a href="#">Home<i class="material-icons">expand_more</i></a></li>
-                                <li class="mugdhota_main_manu_items"><a href="#">Home<i class="material-icons">expand_more</i></a></li>
+                                <li class="mugdhota_main_manu_items"><a href="#">Our Work</a></li>
+                                <li class="mugdhota_main_manu_items"><a href="#">Career</a></li>
+                                <li class="mugdhota_main_manu_items"><a href="#">Contact</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -409,10 +410,77 @@
         </div>
     </div>
     
-
     {% block content %}
     {% endblock content %}
 
+    {% include 'inline-style.html' %}
+
+    <!--Footer-->  
+    <div class="container_full footer_bg">
+        <div class="container">
+            <div class="footer flex">
+
+                <div class="single_footer" style="width:33%">
+                    <div class="sng_footer_cnt">
+                        <a href="#"><img src="{% static 'images/mugdhota.PNG' %}" alt=""></a>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled</p>
+                    </div>
+                </div>
+
+                <div class="single_footer">
+                    <div class="sng_footer_cnt footer_child_f_right f_cnt" style="margin-left:75px">
+                        <h2>Contact Us</h2>
+                        <p>House: 531/1; Munshipara; Rangpur</p>
+                        <a href="">contact@mugdhota.com</a>
+                        <a href="#">+8801601048678</a>
+                    </div>
+                </div>
+
+                <div class="single_footer">
+                    <div class="sng_footer_cnt footer_child_f_right">
+                        <h2>Resources</h2>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Fasion</a></li>
+                            <li><a href="#">Lifestyle</a></li>
+                            <li><a href="#">Travel</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="single_footer">
+                    <div class="sng_footer_cnt footer_child_f_right">
+                        <div class="app_item">
+                            <img src="{% static 'simg/g.png' %}" alt="">
+                            <img src="{% static 'simg/apple.png' %}" alt="">
+                        </div>
+                        <div class="follow_us">
+                            <h2 style="color:#fff">Follow us on</h2>
+                            <div class="social_icon flex">
+                                <a href=""><i class="fa-brands fa-square-facebook"></i></a>
+                                <a href=""><i class="fa-brands fa-square-x-twitter"></i></a>
+                                <a href=""><i class="fa-brands fa-square-instagram"></i></a>
+                                <a href=""><i class="fa-brands fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container_full footer_bottom_bg">
+        <div class="container flex">
+            <div class="fb_cnt">
+                <p>copy; All right reserved by Redwan</p>
+            </div>
+            <div class="fb_cnt" style="text-align:right">
+                <p>Design and Developed by Redwan</p>
+                <p>Contant: +8801601048678 or redwanshuvo1@gmail.com</p>
+            </div>
+        </div>
+    </div>
 
     <script src="{% static 'assets/js/script.js' %}"></script>
     <!-- jQuery -->
