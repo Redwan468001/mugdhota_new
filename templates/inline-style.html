@@ -1,5 +1,11 @@
 <style>
 
+p{
+    margin: 0;
+}
+br{
+    display: none;
+}
 .1st_child{
     display: none;
 }
@@ -10,6 +16,7 @@
     display: none;
 }
 
+{% comment %} Footer {% endcomment %}
 .footer_bg{
     background: #020202d4;
     padding: 35px 0 20px 0;
@@ -400,12 +407,13 @@ button.slide_next {
 }
 
 .mugdhota_content_nav{
-    display: block;
+    display: flex;
     overflow: auto;
     padding: 10px;
     border: 1px solid #ddd;
     border-left: 4px solid rgb(4, 188, 4);
     margin-bottom: 30px;
+    justify-content: space-between;
 }
 .cnt_index{
     padding: 5px 15px 5px 5px;
@@ -426,7 +434,7 @@ button.slide_next {
     color: rgb(4, 188, 4);
 }
 .cnt_view_all{
-    float: right !important;
+    margin-top: 6px;
 }
 .active_cnt_nav{
     color: rgb(4, 188, 4) !important;
@@ -456,7 +464,7 @@ button.slide_next {
 }
 .smcr_img img{
     width: 100px;
-    height: 70px;
+    height: 56px;
 }
 .smcr_cnt{
     width: calc(100% - 100px);
@@ -615,8 +623,8 @@ button.slide_next {
     margin-bottom: 30px;
 }
 .spc_cnt p{
-    line-height: 1.8;
-    margin-bottom: 25px;
+    line-height: 2;
+    margin-bottom: 10px;
 }
 
 /* Single Page Right Section */
@@ -677,13 +685,22 @@ button.slide_next {
     display: inline-block;
 }
 
+.pi_sng_category{
+    margin-left: -15px;
+}
 .pi_sng_category a{
     display: inline-block;
     padding: 8px 15px;
     font-size: 16px;
+    color: #5a5a5ade;
 }
 .pi_sng_category a i{
     font-size: 12px;
+}
+.active_cat{
+    font-size: 18px !important;
+    font-weight: 700;
+    color: black !important;
 }
 
 /* 

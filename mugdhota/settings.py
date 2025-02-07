@@ -149,5 +149,9 @@ CKEDITOR_CONFIGS = {
         'extraPlugins': 'image2',  # Enable advanced image plugin
         'filebrowserUploadUrl': '/ckeditor/upload/',
         'filebrowserBrowseUrl': '/ckeditor/browse/',
+        'enterMode': 2,  # CKEDITOR.ENTER_BR (uses <br> instead of <p>)
+        'shiftEnterMode': 2,  # CKEDITOR.ENTER_BR (uses <br>)
+        'allowedContent': True,  # Allows all HTML tags
+        'forcePasteAsPlainText': True,
     },
 }

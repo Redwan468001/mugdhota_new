@@ -92,7 +92,7 @@
                                     </div>
                                     <div class="view_all">
                                         <ul>
-                                            <li class="cnt_view_all"><a href="">View all <i class="fa fa-caret-right"></i></a></li>
+                                            <li class="cnt_view_all"><a href="{% url 'artandliterature' %}">View all <i class="fa fa-caret-right"></i></a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -108,18 +108,20 @@
                                     {% if forloop.first %}
                                     <div class="mugdhota_cnts_left pd_right_20 res_no_pd res_width_100">
                                         <div class="mugdhota_cnts_left_section">
-                                            <div class="sng_mugdhota_cnts">
-                                                <div class="smcl_img">
-                                                    {% if post.feature_image %}
-                                                    <img src="{{ post.feature_image.url }}" alt="">
-                                                    {% endif %}
+                                            <a href="{% url 'single_post' post.slug %}">
+                                                <div class="sng_mugdhota_cnts">
+                                                    <div class="smcl_img">
+                                                        {% if post.feature_image %}
+                                                        <img src="{{ post.feature_image.url }}" alt="">
+                                                        {% endif %}
+                                                    </div>
+                                                    <div class="smc_cnt">
+                                                        <h3 style="padding-top: 10px;">{{ post.title }}</h3>
+                                                        {{ post.content|safe|escape|linebreaks|truncatechars:100 }}
+                                                        <p style="margin-top:25px;color:#7d7c7c">{{ post.category.name }} - {{ post.create_at }}</p>
+                                                    </div>
                                                 </div>
-                                                <div class="smc_cnt">
-                                                    <h3 style="padding-top: 10px;">{{ post.title }}</h3>
-                                                    <p>{{ post.content|truncatechars:100 }}</p>
-                                                    <p>{{ post.category.name }} - {{ post.create_at }}</p>
-                                                </div>
-                                            </div>
+                                            </a>
                                         </div>
                                     </div>
                                     {% endif %}
@@ -127,17 +129,19 @@
                                     {% if not forloop.first %}
                                     <div class="mugdhota_cnts_right pd_left_20 res_no_pd res_width_100">
                                         <div class="mugdhota_cnts_right_section">
-                                            
+
                                             <div class="sng_mugdhota_cnts_right">
-                                                <div class="smcr_img">
-                                                    <img src="{{ post.feature_image.url }}" alt="">
-                                                </div>
-                                                <div class="smcr_cnt pd_left_10">
-                                                    <h3>{{ post.title }}</h3>
-                                                    <p>{{ post.category.name }} - {{ post.create_at }}</p>
-                                                </div>
+                                                <a href="{% url 'single_post' post.slug %}">
+                                                    <div class="smcr_img">
+                                                        <img src="{{ post.feature_image.url }}" alt="">
+                                                    </div>
+                                                    <div class="smcr_cnt pd_left_10">
+                                                        <h3>{{ post.title }}</h3>
+                                                        <p>{{ post.category.name }} - {{ post.create_at }}</p>
+                                                    </div>
+                                                </a>
                                             </div>
-                                            
+
                                         </div>
                                     </div>
                                     {% endif %}
@@ -148,24 +152,25 @@
                                 <!-- End Overview item 1 -->
 
                                 <!-- Overview item 1 -->
-                                
                                 <div class="mugdhota_cnts_section msmcs_section" id="item1">
                                     {% for post in stories %}
                                     {% if forloop.first %}
                                     <div class="mugdhota_cnts_left pd_right_20 res_no_pd res_width_100">
                                         <div class="mugdhota_cnts_left_section">
-                                            <div class="sng_mugdhota_cnts">
-                                                <div class="smcl_img">
-                                                    {% if post.feature_image %}
-                                                    <img src="{{ post.feature_image.url }}" alt="">
-                                                    {% endif %}
+                                            <a href="{% url 'single_post' post.slug %}">
+                                                <div class="sng_mugdhota_cnts">
+                                                    <div class="smcl_img">
+                                                        {% if post.feature_image %}
+                                                        <img src="{{ post.feature_image.url }}" alt="">
+                                                        {% endif %}
+                                                    </div>
+                                                    <div class="smc_cnt">
+                                                        <h3 style="padding-top: 10px;">{{ post.title }}</h3>
+                                                        {{ post.content|safe|escape|linebreaks|truncatechars:100 }}
+                                                        <p style="margin-top:25px;color:#7d7c7c">{{ post.category.name }} - {{ post.create_at }}</p>
+                                                    </div>
                                                 </div>
-                                                <div class="smc_cnt">
-                                                    <h3 style="padding-top: 10px;">{{ post.title }}</h3>
-                                                    <p>{{ post.content|truncatechars:100 }}</p>
-                                                    <p>{{ post.category.name }} - {{ post.create_at }}</p>
-                                                </div>
-                                            </div>
+                                            </a>
                                         </div>
                                     </div>
                                     {% endif %}
@@ -175,13 +180,15 @@
                                         <div class="mugdhota_cnts_right_section">
                                             
                                             <div class="sng_mugdhota_cnts_right">
-                                                <div class="smcr_img">
-                                                    <img src="{{ post.feature_image.url }}" alt="">
-                                                </div>
-                                                <div class="smcr_cnt pd_left_10">
-                                                    <h3>{{ post.title }}</h3>
-                                                    <p>{{ post.category.name }} - {{ post.create_at }}</p>
-                                                </div>
+                                                <a href="{% url 'single_post' post.slug %}">
+                                                    <div class="smcr_img">
+                                                        <img src="{{ post.feature_image.url }}" alt="">
+                                                    </div>
+                                                    <div class="smcr_cnt pd_left_10">
+                                                        <h3>{{ post.title }}</h3>
+                                                        <p>{{ post.category.name }} - {{ post.create_at }}</p>
+                                                    </div>
+                                                </a>
                                             </div>
                                             
                                         </div>
@@ -201,18 +208,20 @@
                                     {% if forloop.first %}
                                     <div class="mugdhota_cnts_left pd_right_20 res_no_pd res_width_100">
                                         <div class="mugdhota_cnts_left_section">
-                                            <div class="sng_mugdhota_cnts">
-                                                <div class="smcl_img">
-                                                    {% if post.feature_image %}
-                                                    <img src="{{ post.feature_image.url }}" alt="">
-                                                    {% endif %}
+                                            <a href="{% url 'single_post' post.slug %}">
+                                                <div class="sng_mugdhota_cnts">
+                                                    <div class="smcl_img">
+                                                        {% if post.feature_image %}
+                                                        <img src="{{ post.feature_image.url }}" alt="">
+                                                        {% endif %}
+                                                    </div>
+                                                    <div class="smc_cnt">
+                                                        <h3 style="padding-top: 10px;">{{ post.title }}</h3>
+                                                        {{ post.content|safe|escape|linebreaks|truncatechars:100 }}
+                                                        <p style="margin-top:25px;color:#7d7c7c">{{ post.category.name }} - {{ post.create_at }}</p>
+                                                    </div>
                                                 </div>
-                                                <div class="smc_cnt">
-                                                    <h3 style="padding-top: 10px;">{{ post.title }}</h3>
-                                                    <p>{{ post.content|truncatechars:100 }}</p>
-                                                    <p>{{ post.category.name }} - {{ post.create_at }}</p>
-                                                </div>
-                                            </div>
+                                            </a>
                                         </div>
                                     </div>
                                     {% endif %}
@@ -224,13 +233,15 @@
                                         <div class="mugdhota_cnts_right_section">
                                             
                                             <div class="sng_mugdhota_cnts_right">
-                                                <div class="smcr_img">
-                                                    <img src="{{ post.feature_image.url }}" alt="">
-                                                </div>
-                                                <div class="smcr_cnt pd_left_10">
-                                                    <h3>{{ post.title }}</h3>
-                                                    <p>{{ post.category.name }} - {{ post.create_at }}</p>
-                                                </div>
+                                                <a href="{% url 'single_post' post.slug %}">
+                                                    <div class="smcr_img">
+                                                        <img src="{{ post.feature_image.url }}" alt="">
+                                                    </div>
+                                                    <div class="smcr_cnt pd_left_10">
+                                                        <h3>{{ post.title }}</h3>
+                                                        <p>{{ post.category.name }} - {{ post.create_at }}</p>
+                                                    </div>
+                                                </a>
                                             </div>
                                             
                                         </div>
