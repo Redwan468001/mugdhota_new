@@ -1,11 +1,21 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
-from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth import login, logout, authenticate, get_user_model
 from . models import User
 from . forms import UserCreationForm
 import random
 
 # Create your views here.
+
+# User Profile
+def userProfile(request, username):
+    user = get_object_or_404(User, username=username)
+
+    context = {
+        'user': user
+    }
+
+    return render(request, 'user_profile.html', context)
 
 # User Registration from
 def user_registration(request):
@@ -13,11 +23,11 @@ def user_registration(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             phone_number = form.cleaned_data.get('phone')
-            # Check if the phone number already exists
+
             if User.objects.filter(phone=phone_number).exists():
-                messages.error(request, 'You have already an account with this phone number. Please log-in your account or choose another phone number')
-                return (request, '', {'form': form, 'show_alert': True})
-        
+                messages.error(request, 'You already have an account with this phone number.')
+                return render(request, 'registration.html', {'form': form})
+
             user = form.save(commit=False)
             user.username = form.clean_username()
             otp = str(random.randint(10000, 99999))
@@ -25,21 +35,17 @@ def user_registration(request):
 
             request.session['otp'] = otp
 
-            # Save the user instance in the session for later retrieval
+            # ✅ Store password in session
             request.session['user_info'] = {
                 'username': user.username,
                 'name': form.cleaned_data.get('name'),
                 'email': form.cleaned_data.get('email'),
                 'phone_number': phone_number,
+                'password': form.cleaned_data.get('password1')  # Django's UserCreationForm uses 'password1'
             }
 
             return redirect('verify_otp')
-        
-        else:
-            for field, errors in form.error.items():
-                for error in errors:
-                    messages.error(request, f'{field.capitalized()}: {error}')
-    
+
     else:
         form = UserCreationForm()
 
@@ -62,7 +68,7 @@ def verify_otp(request):
                 email=user_data['email'],
                 phone=user_data['phone_number'],
             )
-            user.set_password(request.POST.get('password'))  # Set and hash the password
+            user.set_password(user_data['password'])
             user.save()
 
             messages.success(request, 'OTP verify Successfully')
@@ -80,27 +86,29 @@ def verify_otp(request):
 
 
 # Log-in view
-def logIn(request):
+User = get_user_model()
 
+def logIn(request):
     if request.method == "POST":
         phone = request.POST.get('phone')
         password = request.POST.get('password')
 
         try:
-            user = User.objects.get(phone=phone)
-        except:
-            messages.error(request, 'User does not exist')
+            user = User.objects.get(phone=phone)  # Check if user exists
+        except User.DoesNotExist:
+            messages.error(request, 'User does not exist.')
+            return redirect('log_in')  # Redirect back to login page
 
-        # Authenticate user
-        user = authenticate(request, phone=phone, password=password)
+        # Authenticate using the phone number
+        user = authenticate(request, username=phone, password=password)
 
         if user is not None:
             login(request, user)
             messages.success(request, f"Welcome back {user.name}")
-            next_url = request.GET.get('next', reverse('home'))
-            return redirect(next_url)
+            return redirect('home')  # Redirect to home page
         else:
             messages.error(request, "Invalid phone or password. Please try again.")
+            return redirect('log_in')  # Redirect back to login page
 
     return render(request, 'log_in.html')
 

@@ -41,6 +41,7 @@
                             {% for post in posts %}
                             <div class="mugdhota_cnts_left pd_all_20 res_no_pd res_width_100">
                                 <div class="mugdhota_cnts_left_section">
+                                    <a href="{% url 'single_post' post.slug %}">
                                     <div class="sng_mugdhota_cnts">
                                         <div class="smcl_img">
                                             {% if post.feature_image %}
@@ -52,6 +53,7 @@
                                             <p style="color:#7d7c7c">{{ post.category.name }} - {{ post.create_at }}</p>
                                         </div>
                                     </div>
+                                    </a>
                                 </div>
                             </div>
                             {% endfor %}

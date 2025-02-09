@@ -48,14 +48,16 @@
                             <button type="submit">Search</button>
                         </div>
                     </div>
-        
+
                     <div class="mugdhota_web_info_right desk">
-                        <div class="user_info">
+                        <div class="user_info flex">
                             {% if request.user.is_authenticated %}
-                            <span>{{request.user.name}}</span>
-                            <i class="fa fa-user-circle-o"></i>
+                            <a href="{% url 'profile' request.user.username %}">
+                                <h2>{{request.user.name}}</h2>
+                                <i class="fa fa-user-circle-o"></i>
+                            </a>
                             {% else %}
-                            <a href="#">
+                            <a href="{% url 'log_in' %}">
                                 <span>Log-in</span>
                                 <i class="fa fa-user-circle-o"></i>
                             </a>

@@ -1,0 +1,60 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container_full">
+    <div class="container" style="width:95%">
+        <div class="cnt_management_page flex">
+
+            <div class="writer_menu width_30">
+                {% include 'user_nav.html' %}
+            </div>
+
+            <div class="upload_content_form_section width_70">
+                <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <div class="content_upload_section flex">
+
+                    <div class="content_upload_form width_70 res_width_100">
+                        <div class="form_field">
+                            <h2>Title</h2>
+                            {{ form.title }}
+                        </div>
+                        <div class="form_field">
+                            <h2>Author</h2>
+                            {{ form.author }}
+                        </div>
+                        <div class="form_field">
+                            <h2>Content</h2>
+                            {{ form.media }}
+                            {{ form.content }}
+                        </div>
+                        <div class="form_field">
+                            <h2>Feature Image</h2>
+                            {{ form.feature_image }}
+                        </div>
+                    </div>
+
+                    <div class="content_upload_form width_30 res_width_100">
+                        <div class="form_field">
+                            <h2>Category</h2>
+                            {% for category in form.category %}
+                            <div>
+                                {{ category.tag }} {{ category.choice_label }}
+                            </div>
+                        {% endfor %}
+                        </div>
+                    </div>
+
+                </div>
+
+                <button type="submit">Submit</button>
+            </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

@@ -70,6 +70,8 @@
     </div>
     <!-- End Slider -->
 
+<a href="{% url 'upload_content' %}">Upload</a>
+
     <!-- Content secction style 1 (Overview Nav) -->
     <div class="container_full" style="margin-top: 30px;">
         <div class="container">
@@ -102,9 +104,8 @@
                             <div class="mugdhota_content_section content m_content1">
 
                                 <!-- Overview item 1 -->
-                                
                                 <div class="mugdhota_cnts_section msmcs_section" id="item0">
-                                    {% for post in posts|slice:":4" %}
+                                    {% for post in posts|slice:":5" %}
                                     {% if forloop.first %}
                                     <div class="mugdhota_cnts_left pd_right_20 res_no_pd res_width_100">
                                         <div class="mugdhota_cnts_left_section">
@@ -148,12 +149,11 @@
                                     {% endfor %}
 
                                 </div>
-                                
                                 <!-- End Overview item 1 -->
 
                                 <!-- Overview item 1 -->
                                 <div class="mugdhota_cnts_section msmcs_section" id="item1">
-                                    {% for post in stories %}
+                                    {% for post in stories|slice:":5" %}
                                     {% if forloop.first %}
                                     <div class="mugdhota_cnts_left pd_right_20 res_no_pd res_width_100">
                                         <div class="mugdhota_cnts_left_section">
@@ -197,14 +197,12 @@
                                     {% endfor %}
 
                                 </div>
-                                
                                 <!-- End Overview item 1 -->
                                 
                                 <!-- Overview item 2 -->
-                                
                                 <div class="mugdhota_cnts_section msmcs_section" id="item2">
                                     
-                                    {% for post in novels %}
+                                    {% for post in novels|slice:":5" %}
                                     {% if forloop.first %}
                                     <div class="mugdhota_cnts_left pd_right_20 res_no_pd res_width_100">
                                         <div class="mugdhota_cnts_left_section">
@@ -251,8 +249,8 @@
 
                                 </div>
                                 <!-- End Overview item 2 -->
+
                             </div>
-                            
                             <!-- Content -->
 
                         </div>
