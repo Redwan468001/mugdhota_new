@@ -4,4 +4,3 @@ from . models import Category, ArtAndLiterature, ContentStatus
 # Register your models here.
 admin.site.register(Category)
 admin.site.register(ArtAndLiterature)
-admin.site.register(ContentStatus)

@@ -1,10 +1,10 @@
 from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField
 from User.models import User
+from config.models import ContentStatus
 
 
 # Create your models here.
-
 class Category(models.Model):
     name = models.CharField(max_length=255, blank=False)
     image = models.ImageField(upload_to='category_img', blank=True, null=True)
@@ -12,13 +12,8 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
-class ContentStatus(models.Model):
-    name = models.CharField(max_length=255, blank=False)
 
-    def __str__(self):
-        return self.name
-
-class ArtAndLiterature(models.Model):
+class MedicalInsight(models.Model):
     category = models.ForeignKey(Category, on_delete=models.PROTECT, blank=False)
     title = models.CharField(max_length=255, blank=False)
     slug = models.CharField(max_length=255, unique=True, blank=True, null=True)
@@ -34,15 +29,15 @@ class ArtAndLiterature(models.Model):
 
     def __str__(self):
         return f"{self.title} - {self.author}"
-    
 
-class Comment(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    content = models.ForeignKey(ArtAndLiterature, on_delete=models.PROTECT)
-    comment = models.TextField()
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
 
-    def __str__(self):
-        return self.content
+# class Comment(models.Model):
+#     user = models.ForeignKey(User, on_delete=models.CASCADE)
+#     content = models.ForeignKey(MedicalInsight, on_delete=models.PROTECT)
+#     comment = models.TextField()
+#     created = models.DateTimeField(auto_now_add=True)
+#     updated = models.DateTimeField(auto_now=True)
+#
+#     def __str__(self):
+#         return self.content
 

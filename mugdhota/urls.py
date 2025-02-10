@@ -18,12 +18,11 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from ckeditor_uploader import views as ckeditor_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('config.urls')),
-    path('medical/', include('MedicalInsight.urls')),
+    path('medical/', include('medical.urls')),
     path('art-and-literature/', include('ArtAndLiterature.urls')),
     path("user/", include('User.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),

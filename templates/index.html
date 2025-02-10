@@ -70,7 +70,7 @@
     </div>
     <!-- End Slider -->
 
-<a href="{% url 'upload_content' %}">Upload</a>
+    <a href="{% url 'upload_content' %}">Upload</a>
 
     <!-- Content secction style 1 (Overview Nav) -->
     <div class="container_full" style="margin-top: 30px;">
@@ -126,11 +126,13 @@
                                         </div>
                                     </div>
                                     {% endif %}
+                                    {% endfor %}
 
-                                    {% if not forloop.first %}
+
                                     <div class="mugdhota_cnts_right pd_left_20 res_no_pd res_width_100">
                                         <div class="mugdhota_cnts_right_section">
 
+                                            {% for post in posts|slice:"1:5" %}
                                             <div class="sng_mugdhota_cnts_right">
                                                 <a href="{% url 'single_post' post.slug %}">
                                                     <div class="smcr_img">
@@ -142,19 +144,17 @@
                                                     </div>
                                                 </a>
                                             </div>
+                                            {% endfor %}
 
                                         </div>
                                     </div>
-                                    {% endif %}
-                                    {% endfor %}
 
                                 </div>
                                 <!-- End Overview item 1 -->
 
                                 <!-- Overview item 1 -->
                                 <div class="mugdhota_cnts_section msmcs_section" id="item1">
-                                    {% for post in stories|slice:":5" %}
-                                    {% if forloop.first %}
+                                    {% for post in stories|slice:":1" %}
                                     <div class="mugdhota_cnts_left pd_right_20 res_no_pd res_width_100">
                                         <div class="mugdhota_cnts_left_section">
                                             <a href="{% url 'single_post' post.slug %}">
@@ -173,12 +173,11 @@
                                             </a>
                                         </div>
                                     </div>
-                                    {% endif %}
+                                    {% endfor %}
 
-                                    {% if not forloop.first %}
                                     <div class="mugdhota_cnts_right pd_left_20 res_no_pd res_width_100">
                                         <div class="mugdhota_cnts_right_section">
-                                            
+                                            {% for post in stories|slice:"1:5" %}
                                             <div class="sng_mugdhota_cnts_right">
                                                 <a href="{% url 'single_post' post.slug %}">
                                                     <div class="smcr_img">
@@ -190,11 +189,10 @@
                                                     </div>
                                                 </a>
                                             </div>
+                                            {% endfor %}
                                             
                                         </div>
                                     </div>
-                                    {% endif %}
-                                    {% endfor %}
 
                                 </div>
                                 <!-- End Overview item 1 -->
@@ -202,8 +200,7 @@
                                 <!-- Overview item 2 -->
                                 <div class="mugdhota_cnts_section msmcs_section" id="item2">
                                     
-                                    {% for post in novels|slice:":5" %}
-                                    {% if forloop.first %}
+                                    {% for post in novels|slice:":1" %}
                                     <div class="mugdhota_cnts_left pd_right_20 res_no_pd res_width_100">
                                         <div class="mugdhota_cnts_left_section">
                                             <a href="{% url 'single_post' post.slug %}">
@@ -222,14 +219,12 @@
                                             </a>
                                         </div>
                                     </div>
-                                    {% endif %}
                                     {% endfor %}
 
-                                    {% for post in novels|slice:":4" %}
-                                    {% if not forloop.first %}
                                     <div class="mugdhota_cnts_right pd_left_20 res_no_pd res_width_100">
                                         <div class="mugdhota_cnts_right_section">
-                                            
+
+                                            {% for post in novels|slice:"1:5" %}
                                             <div class="sng_mugdhota_cnts_right">
                                                 <a href="{% url 'single_post' post.slug %}">
                                                     <div class="smcr_img">
@@ -241,11 +236,10 @@
                                                     </div>
                                                 </a>
                                             </div>
-                                            
+                                            {% endfor %}
+
                                         </div>
                                     </div>
-                                    {% endif %}
-                                    {% endfor %}
 
                                 </div>
                                 <!-- End Overview item 2 -->
@@ -326,52 +320,29 @@
                     <div class="mugdhota_content_style_2_cnt pd_right_30 res_no_pd">
 
                         <div class="content_title">
-                            <h2 style="border-left: 4px solid #096760;color:#096760">Science Fictions</h2>
+                            <h2 style="border-left: 4px solid #096760;color:#096760">Medical Science</h2>
                         </div>
 
                         <div class="mcs2c">
-
+                            {% for medical in medicals|slice:":4" %}
                             <div class="sng_mcs2c">
-                                <div class="sng_mcs2c_img res_width_100">
-                                    <img src="{% static 'simg/img1.jpg' %}" alt="">
-                                    <div class="cnt_des">
-                                        <h4>Dave Rogers in News</h4>
-                                        <p>Jun 14 • 3 min read</p>
+                                <a href="{% url 'single_post_medi' medical.slug %}">
+                                    <div class="sng_mcs2c_img res_width_100">
+                                        {% if medical.feature_image %}
+                                        <img src="{{ medical.feature_image.url }}" alt="">
+                                        {% endif %}
+                                        <div class="cnt_des">
+                                            <h4>{{ medical.writer }} in {{ medical.category }}</h4>
+                                            <p>{{ medical.create_at }} • 3 min read</p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="sng_mcs2c_cnt res_width_100">
-                                    <h2>News Needs to Meet Its Audiences Where They Are</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque, voluptatum quam quibusdam.</p>
-                                </div>
-                            </div>
-
-                            <div class="sng_mcs2c">
-                                <div class="sng_mcs2c_img res_width_100">
-                                    <img src="{% static 'simg/img2.jpg' %}" alt="">
-                                    <div class="cnt_des">
-                                        <h4>Dave Rogers in News</h4>
-                                        <p>Jun 14 • 3 min read</p>
+                                    <div class="sng_mcs2c_cnt res_width_100">
+                                        <h2>{{ medical.title }}</h2>
+                                        <p>{{ medical.content|safe|escape|linebreaks|truncatechars:100 }}</p>
                                     </div>
-                                </div>
-                                <div class="sng_mcs2c_cnt res_width_100">
-                                    <h2>News Needs to Meet Its Audiences Where They Are</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque, voluptatum quam quibusdam.</p>
-                                </div>
+                                </a>
                             </div>
-
-                            <div class="sng_mcs2c">
-                                <div class="sng_mcs2c_img res_width_100">
-                                    <img src="{% static 'simg/img3.jpg' %}" alt="">
-                                    <div class="cnt_des">
-                                        <h4>Dave Rogers in News</h4>
-                                        <p>Jun 14 • 3 min read</p>
-                                    </div>
-                                </div>
-                                <div class="sng_mcs2c_cnt res_width_100">
-                                    <h2>News Needs to Meet Its Audiences Where They Are</h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque, voluptatum quam quibusdam.</p>
-                                </div>
-                            </div>
+                            {% endfor %}
 
                         </div>
 
