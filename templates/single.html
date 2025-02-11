@@ -60,10 +60,9 @@
                             <div class="wrapper_right_cnt">
                                 <div class="category single_page_category">
                                     <ul>
-                                        <li><a href="#">Novel</a></li>
-                                        <li><a href="#">Story</a></li>
-                                        <li><a href="#">Poem</a></li>
-                                        <li><a href="#">Technology</a></li>
+                                        {% for category in categories %}
+                                        <li><a href="{% url 'singlecategory' category  %}">{{ category }}</a></li>
+                                        {% endfor %}
                                     </ul>
                                 </div>
                             </div>
@@ -172,14 +171,11 @@
                         <div class="wrapper_right_content">
                             <div class="wrapper_right_cnt">
                                 <div class="tags single_page_tags">
-                                    <a href="#">Life Style</a>
-                                    <a href="#">Technology</a>
-                                    <a href="#">Fashion</a>
-                                    <a href="#">Blog</a>
-                                    <a href="#">News</a>
-                                    <a href="#">Life Style</a>
-                                    <a href="#">Technology</a>
-                                    <a href="#">Fashion</a>
+                                    {% if tags %}
+                                    {% for tag in tags.all %}
+                                    <a href="#">{{ tag.name }}</a>
+                                    {% endfor %}
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>

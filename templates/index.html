@@ -136,7 +136,9 @@
                                             <div class="sng_mugdhota_cnts_right">
                                                 <a href="{% url 'single_post' post.slug %}">
                                                     <div class="smcr_img">
-                                                        <img src="{{ post.feature_image.url }}" alt="">
+                                                        {% if post.feature_image %}
+                                                            <img src="{{ post.feature_image.url }}" alt="">
+                                                        {% endif %}
                                                     </div>
                                                     <div class="smcr_cnt pd_left_10">
                                                         <h3>{{ post.title }}</h3>

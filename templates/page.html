@@ -33,7 +33,7 @@
                 </div>
             </div>
 
-            <div class="wrapper_66 left res_width_100 mr_left_-20 mr_right_-20 mr_top_-20 res_no_mar">
+            <div class="width_66 left res_width_100 mr_left_-20 mr_right_-20 mr_top_-20 res_no_mar">
                 <div class="page_left_section">
                     
                     <div class="page_section">
@@ -63,7 +63,7 @@
                 </div>
             </div>
 
-            <div class="wrapper_33 right res_width_100">
+            <div class="width_33 right res_width_100">
                 <div class="wrapper_right_section pd_left_20 res_no_pd">
                     
                     <!-- Category -->
@@ -76,10 +76,9 @@
                             <div class="wrapper_right_cnt">
                                 <div class="category single_page_category">
                                     <ul>
-                                        <li><a href="#">Novel</a></li>
-                                        <li><a href="#">Story</a></li>
-                                        <li><a href="#">Poem</a></li>
-                                        <li><a href="#">Technology</a></li>
+                                        {% for category in categories %}
+                                        <li><a href="{% url 'singlecategory' category  %}">{{ category }}</a></li>
+                                        {% endfor %}
                                     </ul>
                                 </div>
                             </div>
