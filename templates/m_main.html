@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <script src="https://kit.fontawesome.com/43f70b9b97.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/flexslider.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'cmn-style.css' %}">
+    <link rel="stylesheet" href="{% static 'responsive.css' %}">
+
+    <!-- Slick Slider CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+
+    <title>Mugdhota</title>
+
+</head>
+<body>
+
+    <!-- Header Section -->
+
+    <div class="container_header">
+        <div class="container" style="width:100%">
+
+            <div id="header">
+                <div class="header_section">
+
+                    <div class="mugdhota_web_info_left">
+                        <div class="mugdhota_logo">
+                            <a href="#"><img src="{% static 'images/mugdhota.PNG' %}" alt=""></a>
+                        </div>
+                    </div>
+
+                    <div class="sm_manu mob">
+                        <div class="sm_mobile">
+                            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                                <i id="icon" class="fa fa-bars"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="mugdhota_web_info_middle desk">
+                        <div class="main_search">
+                            <input type="search">
+                            <button type="submit">Search</button>
+                        </div>
+                    </div>
+
+                    <div class="mugdhota_web_info_right desk">
+                        <div class="user_info flex">
+                            {% if request.user.is_authenticated %}
+                            <a href="{% url 'user_dashboard' request.user.username %}">
+                                <h2>{{request.user.name}}</h2>
+                                <i class="fa fa-user-circle-o"></i>
+                            </a>
+                            {% else %}
+                            <a href="{% url 'log_in' %}">
+                                <span>Log-in</span>
+                                <i class="fa fa-user-circle-o"></i>
+                            </a>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Mobile Manu -->
+    <div id="mob_manu_items">
+        <div class="mob_manu_section">
+
+            <div class="mob_ms_top">
+                <div class="mob_ms_top_sec">
+                    <div class="main_search">
+                        <input type="search">
+                        <button type="submit">Search</button>
+                    </div>
+                    <div class="today">
+                        <p>1st January, 2025</p>
+                    </div>
+                    <div class="info_menu">
+                        <ul>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Sign up</a></li>
+                            <li><a href="#">Log in</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- End Header Section -->
+
+    <div class="messages">
+        <div class="single_message">
+            {% for message in messages %}
+                <h3 style="color:red">{{ message }}</h3>
+            {% endfor %}
+        </div>
+    </div>
+
+    {% block content %}
+    {% endblock content %}
+
+    {% include 'inline-style.html' %}
+
+    <!--Footer-->
+    <div class="container_full footer_bg">
+        <div class="container">
+            <div class="footer flex">
+
+                <div class="single_footer" style="width:33%">
+                    <div class="sng_footer_cnt">
+                        <a href="#"><img src="{% static 'images/mugdhota.PNG' %}" alt=""></a>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled</p>
+                    </div>
+                </div>
+
+                <div class="single_footer">
+                    <div class="sng_footer_cnt footer_child_f_right f_cnt" style="margin-left:75px">
+                        <h2>Contact Us</h2>
+                        <p>House: 531/1; Munshipara; Rangpur</p>
+                        <a href="">contact@mugdhota.com</a>
+                        <a href="#">+8801601048678</a>
+                    </div>
+                </div>
+
+                <div class="single_footer">
+                    <div class="sng_footer_cnt footer_child_f_right">
+                        <h2>Resources</h2>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Fasion</a></li>
+                            <li><a href="#">Lifestyle</a></li>
+                            <li><a href="#">Travel</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="single_footer">
+                    <div class="sng_footer_cnt footer_child_f_right">
+                        <div class="app_item">
+                            <img src="{% static 'simg/g.png' %}" alt="">
+                            <img src="{% static 'simg/apple.png' %}" alt="">
+                        </div>
+                        <div class="follow_us">
+                            <h2 style="color:#fff">Follow us on</h2>
+                            <div class="social_icon flex">
+                                <a href=""><i class="fa-brands fa-square-facebook"></i></a>
+                                <a href=""><i class="fa-brands fa-square-x-twitter"></i></a>
+                                <a href=""><i class="fa-brands fa-square-instagram"></i></a>
+                                <a href=""><i class="fa-brands fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container_full footer_bottom_bg">
+        <div class="container flex">
+            <div class="fb_cnt">
+                <p>copy; All right reserved by Redwan</p>
+            </div>
+            <div class="fb_cnt" style="text-align:right">
+                <p>Design and Developed by Redwan</p>
+                <p>Contant: +8801601048678 or redwanshuvo1@gmail.com</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'assets/js/script.js' %}"></script>
+    <!-- jQuery -->
+    <script src="{% static 'assets/js/jquery-3.6.0.min.js' %}"></script>
+
+    <!-- Slick Slider JS -->
+    <script src="{% static 'assets/js/slick.js' %}"></script>
+
+    <!-- Slider Js -->
+    <script>
+
+        $(document).ready(function () {
+            $('.slider_section').slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: false, // Disable default arrows
+                autoplay: true,
+                autoplaySpeed: 3000,
+                fade: false,
+                infinity: true,
+                cssEase: 'ease-in-out',
+            });
+
+            // Custom buttons
+            $('.slide_prev').click(function () {
+                $('.slick-slider').slick('slickPrev');
+            });
+
+            $('.slide_next').click(function () {
+                $('.slick-slider').slick('slickNext');
+            });
+        });
+
+    </script>
+
+    <!-- Mobile Manu -->
+    <script>
+        function myFunction() {
+            var x = document.getElementById("mob_manu_items");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "block";
+            }
+
+            const icon = document.getElementById('icon');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-close');
+            } else {
+                icon.classList.remove('fa-close');
+                icon.classList.add('fa-bars'); // Changes back to the bars icon
+            }
+        }
+
+    </script>
+
+    <!-- Overview navigations -->
+
+    <script>
+
+        // Script for Manu
+        // Function to initializw an overview navigation menu
+        function initializeOverviewNav(navSelector, sectionSelector) {
+            const navLinks = document.querySelectorAll(`${navSelector} a`);
+            const sections = document.querySelectorAll(sectionSelector);
+
+            // Function to show the active section
+            function setActiveSection(activeId) {
+                sections.forEach((section) => {
+                    if (section.id === activeId) {
+                        section.classList.add("active_ov");
+                    } else {
+                        section.classList.remove("active_ov");
+                    }
+                });
+            }
+
+            // Add click listeners to navigation links
+            navLinks.forEach((link) => {
+                link.addEventListener("click", (event) => {
+                    event.preventDefault();
+                    const targetId = link.getAttribute("href").substring(1);
+                    setActiveSection(targetId);
+                });
+            });
+
+            // Show the first section by default
+            if (sections.length > 0) {
+                setActiveSection(sections[0].id);
+            }
+
+            // Add active class to link
+            navLinks.forEach((link) => {
+                link.addEventListener("click", (event) => {
+                    // Remove the 'active' class from all links
+                    navLinks.forEach((nav) => nav.classList.remove("active_nav"));
+                    // Add the 'active' class to the clicked link
+                    link.classList.add("active_nav");
+                });
+            });
+
+        }
+
+        // Initialize multiple navigation menus
+        initializeOverviewNav(".overview_nav_1", ".content1 .msmcs_section");
+        initializeOverviewNav(".overview_nav_2", ".content2 .msmcs_section");
+        // initializeOverviewNav(".content_nav_1", ".m_content1 .msmcs_section");
+
+        // End Script for Manu
+
+
+        // Script for Overview content
+        function initializeContentNav(cntNavSelector, cntSelector) {
+            const cntNavLinks = document.querySelectorAll(`${cntNavSelector} a`);
+            const cntSections = document.querySelectorAll(cntSelector);
+
+            // Function to show the active section
+            function setActiveSection(activeId) {
+                cntSections.forEach((cntsection) => {
+                    if (cntsection.id === activeId) {
+                        cntsection.classList.add("active_ov");
+                    } else {
+                        cntsection.classList.remove("active_ov")
+                    }
+                });
+            }
+
+            // Add Click lintener to navigation links
+            cntNavLinks.forEach((link) => {
+                link.addEventListener("click", (event) => {
+                    event.preventDefault();
+                    const targetId = link.getAttribute("href").substring(1);
+                    setActiveSection(targetId)
+                });
+            });
+
+            // Show the first item by default
+            if (cntSections.length > 0){
+                setActiveSection(cntSections[0].id)
+            }
+
+            // All class to nav after click
+            cntNavLinks.forEach((link) => {
+                link.addEventListener("click", (event) => {
+                    // Remove the 'active' class from all links
+                    cntNavLinks.forEach((nav) => nav.classList.remove("active_cnt_nav"));
+                    // Add the 'active' class to the clicked link
+                    link.classList.add("active_cnt_nav")
+                });
+            });
+        }
+
+        initializeContentNav(".content_nav_1", ".m_content1 .msmcs_section");
+
+        // End Script for Overview content
+
+
+
+    </script>
+
+
+
+</body>
+</html>

@@ -1,21 +1,115 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth import login, logout, authenticate, get_user_model
+from ArtAndLiterature.models import ArtAndLiterature
+from medical.models import MedicalInsight
 from . models import User
 from . forms import UserCreationForm
 import random
+from itertools import chain
 
 # Create your views here.
 
 # User Profile
-def userProfile(request, username):
+def userDashboard(request, username):
     user = get_object_or_404(User, username=username)
 
+    art_posts = ArtAndLiterature.objects.filter(writer=user)
+    medicals = MedicalInsight.objects.filter(writer=user)
+    posts = list(chain(art_posts, medicals))
+    total_posts = len(posts)
+    published_posts = []
+    pending_posts = []
+    refuged_posts = []
+
+    for pp in posts:
+        if pp.status.name == 'Published':
+            published_posts.append(pp)
+        if pp.status.name == 'Pending':
+            pending_posts.append(pp)
+        if pp.status.name == 'Denay':
+            refuged_posts.append(pp)
+
+    total_published_posts = len(published_posts)
+    total_pending_posts = len(pending_posts)
+    total_refuges_posts = len(refuged_posts)
+
     context = {
-        'user': user
+        'user': user,
+        'total_posts': total_posts,
+        'total_published_posts': total_published_posts,
+        'total_pending_posts': total_pending_posts,
+        'total_refuges_posts': total_refuges_posts,
     }
 
     return render(request, 'user_profile.html', context)
+
+
+# Total Posts
+def user_total_content(request, username):
+    user = get_object_or_404(User, username=username)
+    art_posts = ArtAndLiterature.objects.filter(writer=user)
+    medi_posts = MedicalInsight.objects.filter(writer=user)
+
+    all_posts = list(chain(art_posts, medi_posts))
+    context = {
+        'user': user,
+        'all_posts': all_posts,
+    }
+
+    return render(request, 'total_contents.html', context)
+
+
+# Published Post
+def user_published_content(request, username):
+    user = get_object_or_404(User, username=username)
+    art_posts = ArtAndLiterature.objects.filter(writer=user, status=1)
+    medi_posts = MedicalInsight.objects.filter(writer=user, status=1)
+
+    all_posts = list(chain(art_posts, medi_posts))
+    count = len(all_posts)
+    context = {
+        'user': user,
+        'all_posts': all_posts,
+        'count': count,
+    }
+
+    return render(request, 'user_content.html', context)
+
+
+# Pending Post
+def user_pending_content(request, username):
+    user = get_object_or_404(User, username=username)
+    art_posts = ArtAndLiterature.objects.filter(writer=user, status=2)
+    medi_posts = MedicalInsight.objects.filter(writer=user, status=2)
+
+    all_posts = list(chain(art_posts, medi_posts))
+    count = len(all_posts)
+    context = {
+        'user': user,
+        'all_posts': all_posts,
+        'count': count,
+    }
+
+    return render(request, 'user_content.html', context)
+
+
+# Refuge Post
+def user_refuge_content(request, username):
+    user = get_object_or_404(User, username=username)
+    art_posts = ArtAndLiterature.objects.filter(writer=user, status=3)
+    medi_posts = MedicalInsight.objects.filter(writer=user, status=3)
+
+    all_posts = list(chain(art_posts, medi_posts))
+    count = art_posts.count()
+    context = {
+        'user': user,
+        'all_posts': all_posts,
+        'count': count,
+    }
+
+    return render(request, 'user_refuge_content.html', context)
+
 
 # User Registration from
 def user_registration(request):

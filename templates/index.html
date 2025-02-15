@@ -70,8 +70,6 @@
     </div>
     <!-- End Slider -->
 
-    <a href="{% url 'upload_content' %}">Upload</a>
-
     <!-- Content secction style 1 (Overview Nav) -->
     <div class="container_full" style="margin-top: 30px;">
         <div class="container">
@@ -105,9 +103,10 @@
 
                                 <!-- Overview item 1 -->
                                 <div class="mugdhota_cnts_section msmcs_section" id="item0">
-                                    {% for post in posts|slice:":5" %}
-                                    {% if forloop.first %}
+
                                     <div class="mugdhota_cnts_left pd_right_20 res_no_pd res_width_100">
+
+                                        {% for post in posts|slice:":1" %}
                                         <div class="mugdhota_cnts_left_section">
                                             <a href="{% url 'single_post' post.slug %}">
                                                 <div class="sng_mugdhota_cnts">
@@ -124,10 +123,9 @@
                                                 </div>
                                             </a>
                                         </div>
-                                    </div>
-                                    {% endif %}
-                                    {% endfor %}
+                                        {% endfor %}
 
+                                    </div>
 
                                     <div class="mugdhota_cnts_right pd_left_20 res_no_pd res_width_100">
                                         <div class="mugdhota_cnts_right_section">

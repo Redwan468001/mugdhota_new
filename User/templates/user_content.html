@@ -1,0 +1,50 @@
+{% extends 'm_main.html' %}
+{% load static %}
+{% block content %}
+
+{% if messages %}
+    <script>
+        {% for message in messages %}
+            alert("{{ message }}");
+        {% endfor %}
+    </script>
+{% endif %}
+
+<div class="container_full">
+    <div class="container" style="width:100%">
+        <div class="cnt_management_page flex">
+
+            <div class="writer_menu width_20">
+                {% include 'user_nav.html' %}
+            </div>
+
+            <div class="user_profile_section width_80">
+                <div class="user_profile">
+
+                    <div class="user_content">
+                        <table>
+                            <tr>
+                                <th>No</th>
+                                <th>Content</th>
+                                <th>Delete</th>
+                                <th>Edit</th>
+                            </tr>
+                            {% for post in all_posts %}
+                                <tr>
+                                    <td>{{ forloop.counter }}</td>
+                                    <td>{{ post.title }}</td>
+                                    <td><a href="{% url 'deletecontent' post.slug %}"><i class="fa-solid fa-xmark"></i></a></td>
+                                    <td><a href="{% url 'edit_art_content' post.slug %}">Edit</a></td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

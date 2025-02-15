@@ -31,10 +31,6 @@
                                     {{ form.media }}
                                     {{ form.content }}
                                 </div>
-                                <div class="form_field">
-                                    <h2>Feature Image</h2>
-                                    {{ form.feature_image }}
-                                </div>
                             </div>
 
                             <div class="content_upload_form width_30 res_width_100">
@@ -56,10 +52,22 @@
                                         </div>
                                         {% endfor %}
                                     <p>
-            <label for="{{ form.new_tag.id_for_label }}">{{ form.new_tags.label }}</label><br>
-            {{ form.new_tags }}
-            <small>{{ form.new_tags.help_text }}</small>
-        </p>
+                                        <label for="{{ form.new_tag.id_for_label }}">{{ form.new_tags.label }}</label><br>
+                                        {{ form.new_tags }}
+                                        <small>{{ form.new_tags.help_text }}</small>
+                                    </p>
+                                </div>
+
+
+                                <div class="form_field">
+                                    <h2>Feature Image</h2>
+                                    {{ object.feature_image }}
+                                    <div class="f_img">
+                                        {% if form.instance.feature_image %}
+                                            <img src="{{ form.instance.feature_image.url }}" alt="Feature Image" width="150">
+                                        {% endif %}
+                                    </div>
+                                    {{ form.feature_image }}
                                 </div>
 
                             </div>

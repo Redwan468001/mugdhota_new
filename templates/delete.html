@@ -1,0 +1,25 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container_full">
+    <div class="container">
+
+        <div class="delete_page">
+            <h2>Delete Post</h2>
+            <p>Are you sure you want to delete "<strong>{{ post.title }}</strong>"?</p>
+            {{request.user.username}}
+
+            <form method="post" action="">
+                {% csrf_token %}
+                <button type="submit">Yes Delete</button>
+                <a href="{% url 'usercontent' request.user.username %}">Cancel</a>
+            </form>
+
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock content %}

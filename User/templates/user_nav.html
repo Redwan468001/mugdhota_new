@@ -1,17 +1,24 @@
 <div class="user_profile_nav">
     <div class="sng_user_profile_nav">
+        <h2>Dashboard</h2>
+        <ul>
+            <li><a href="{% url 'user_dashboard' request.user.username %}">Overview</a></li>
+            <li><a href="">Profile</a></li>
+        </ul>
+    </div>
+    <div class="sng_user_profile_nav">
         <h2>Art & Literatures</h2>
         <ul>
-            <li><a href="">Content</a></li>
-            <li><a href="">Pending</a></li>
-            <li><a href="">Refuge</a></li>
+            <li><a href="{% url 'user_published_content' request.user.username %}">Published Content</a></li>
+            <li><a href="{% url 'user_pending_content' request.user.username %}">Pending</a></li>
+            <li><a href="{% url 'user_refuge_content' request.user.username %}">Refuge</a></li>
             <li><a href="{% url 'upload_content' %}">Upload</a></li>
         </ul>
     </div>
     <div class="sng_user_profile_nav">
         <h2>Medical</h2>
         <ul>
-            <li><a href="">Content</a></li>
+            <li><a href="">Published Content</a></li>
             <li><a href="">Pending</a></li>
             <li><a href="">Refuge</a></li>
             <li><a href="{% url 'upload_content_medi' %}">Upload</a></li>

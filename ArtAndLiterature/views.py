@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils.timezone import now, timedelta, datetime
+from django.contrib.auth.decorators import login_required
 from . models import ArtAndLiterature, ContentStatus
 from . models import Category
 from . forms import AaLUploadForm
 from config.models import Tag
+from django.contrib import messages
 
 # Create your views here.
 def artandliterature(request):
@@ -22,6 +24,7 @@ def artandliterature(request):
 
     return render(request, 'page.html', context)
 
+
 # Get Ip Address
 def get_client_ip(request):
     """Get the client IP address from request headers."""
@@ -35,12 +38,14 @@ def get_client_ip(request):
 
 # Single post
 def single_post(request, slug):
-    post = get_object_or_404(ArtAndLiterature, slug=slug)
-    posts = ArtAndLiterature.objects.all()
+
+    all_posts = ArtAndLiterature.objects.all()
     categories = []
-    for post in posts:
+    for post in all_posts:
         if post.category not in categories:
             categories.append(post.category)
+
+    post = get_object_or_404(ArtAndLiterature, slug=slug)
     tags = post.tags
 
     client_ip = get_client_ip(request)  # Get user's IP address
@@ -89,6 +94,7 @@ def singlecategory(request, category):
 
 
 # Upload Art and Literature
+@login_required(login_url='log_in')
 def uploadArtAndLiterature(request):
     form = AaLUploadForm()
     if request.method == "POST":
@@ -122,7 +128,7 @@ def uploadArtAndLiterature(request):
                 new_tags = [Tag.objects.get_or_create(name=tag)[0] for tag in new_tag_names]
                 post.tags.add(*new_tags)
 
-            return redirect('home')
+            # return redirect('home')
 
         return redirect('home')
     else:
@@ -131,3 +137,46 @@ def uploadArtAndLiterature(request):
     return render(request, 'upload_content.html', {'form': form})
 
 
+@login_required(login_url='log_in')
+def editContent(request, slug):
+    post = get_object_or_404(ArtAndLiterature, slug=slug)
+    form = AaLUploadForm(instance=post)
+    if request.method == "POST":
+        form = AaLUploadForm(request.POST, request.FILES, instance=post)
+        if form.is_valid():
+            form.save()
+
+            messages.success(request, 'Successfully edit content')
+
+            selected_tags = form.cleaned_data.get('tags')
+            if selected_tags:
+                post.tags.set(selected_tags)
+
+            new_tags_name = form.cleaned_data.get('new_tags', [])
+            if new_tags_name:
+                new_tags = [Tag.objects.get_or_create(name=tag)[0] for tag in new_tags_name ]
+                post.tags.add(*new_tags)
+
+            return redirect('profile', request.user.username)
+
+        else:
+            form = AaLUploadForm()
+
+    return render(request, 'upload_content.html', {'form':form})
+
+
+# Delete views
+@login_required(login_url='log_in')
+def deletecontent(request, slug):
+    post = get_object_or_404(ArtAndLiterature, slug=slug)
+
+    if request.user != post.writer and not request.user.is_superuser:
+        messages.error(request, "You do not have permission to delete this post.")
+        return redirect('usercontent', request.user.username)
+
+    if request.method == 'POST':
+        post.delete()
+        messages.success(request, "Post deleted successfully.")
+        return redirect('usercontent', request.user.username)
+
+    return render(request, 'delete.html', {'post': post})

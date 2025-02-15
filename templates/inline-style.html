@@ -16,6 +16,20 @@ br{
     display: none;
 }
 
+/**Table**/
+
+table{
+    width: 100%;
+}
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: #f2f2f2;
+}
+
 {% comment %} Footer {% endcomment %}
 .footer_bg{
     background: #020202d4;
@@ -80,21 +94,6 @@ br{
 }
 
 
-
-
-
-</style>
-
-
-
-
-
-
-
-
-
-
-<style>
     /**
         Theme Name: Mugdhota
         Author: Redwan
@@ -148,6 +147,15 @@ body{
 
 h2:hover{
     color: blue;
+}
+
+/**Table**/
+
+th, td{
+    border: 1px solid #ddd;
+}
+table tr:nth-child(odd){
+    background: #ddd;
 }
 
 .content_title h2{
@@ -722,11 +730,57 @@ button.slide_next {
     User Profile
 **/
 
+
+/**Dashboard**/
+
+.user_dashboard{
+    padding: 0 25px;
+}
+.sng_dashboard_items{
+    width: 25%;
+}
+.sng_di{
+    margin: 0 15px;
+    padding: 10px 20px;
+    background: #eee;
+    border-radius: 5px;
+}
+.sng_di h2{
+    font-size: 24px;
+    text-align: center;
+}
+.sng_di h1{
+    font-size: 56px;
+    text-align: center;
+}
+
 .user_profile_nav{
    padding: 10px;
     background-color: #eeeeeea3;
 }
+.sng_user_profile_nav{
+    margin-bottom: 25px;
+    padding: 0 15px;
+}
+.sng_user_profile_nav h2{
+    font-size: 18px;
+    color: black;
+}
+.sng_user_profile_nav ul li {
+    padding: 0;
+}
+.sng_user_profile_nav ul li a{
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 5px 0;
+    border-bottom: 1px solid #ddd;
+    letter-spacing: 0.02em;
+}
 
+.user_profile{
+    margin: 0 25px;
+}
 
 .content_upload_form_sec{
     margin: 0 0 0 20px;
@@ -769,8 +823,20 @@ button.slide_next {
     transition: .2s all ease-in-out;
 }
 
+
+/** User Content **/
+.user_content{
+    width: 70%;
+}
+
 /**
     End User Profile
 **/
+
+
+
+
+
+
 
 </style>

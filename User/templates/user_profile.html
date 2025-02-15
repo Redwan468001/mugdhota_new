@@ -1,17 +1,62 @@
-{% extends 'main.html' %}
+{% extends 'm_main.html' %}
 {% load static %}
 {% block content %}
 
+{% if messages %}
+    <script>
+        {% for message in messages %}
+            alert("{{ message }}");
+        {% endfor %}
+    </script>
+{% endif %}
+
 <div class="container_full">
-    <div class="container" style="width:95%">
+    <div class="container" style="width:100%">
         <div class="cnt_management_page flex">
 
-            <div class="writer_menu width_30">
+            <div class="writer_menu width_20">
                 {% include 'user_nav.html' %}
             </div>
 
-            <div class="upload_content_form_section width_70">
+            <div class="user_profile_section width_80">
+                <div class="user_dashboard">
 
+                    <div class="dashboard_items flex">
+                        <div class="sng_dashboard_items">
+                            <div class="sng_di">
+                                <a href="{% url 'user_total_content' request.user.username %}">
+                                    <h2>Total Content</h2>
+                                    <h1>{{ total_posts }}</h1>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="sng_dashboard_items">
+                            <div class="sng_di">
+                                <a href="{% url 'user_published_content' request.user.username %}">
+                                    <h2>Published Content</h2>
+                                    <h1>{{ total_published_posts }}</h1>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="sng_dashboard_items">
+                            <div class="sng_di">
+                                <a href="{% url 'user_pending_content' request.user.username %}">
+                                    <h2>Pending Content</h2>
+                                    <h1>{{ total_pending_posts }}</h1>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="sng_dashboard_items">
+                            <div class="sng_di">
+                                <a href="{% url 'user_refuge_content' request.user.username %}">
+                                    <h2>Refuge Content</h2>
+                                    <h1>{{ total_refuges_posts }}</h1>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
 
         </div>
