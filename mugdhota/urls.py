@@ -25,6 +25,7 @@ urlpatterns = [
     path('medical/', include('medical.urls')),
     path('art-and-literature/', include('ArtAndLiterature.urls')),
     path("user/", include('User.urls')),
+    path("editorial/", include('editorial_body.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
 ]
 

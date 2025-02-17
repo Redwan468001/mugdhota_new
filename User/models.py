@@ -24,6 +24,7 @@ class User(AbstractUser):
 
     # User Controler
     is_admin = models.BooleanField(default=False)
+    is_editor = models.BooleanField(default=False)
     is_author = models.BooleanField(default=False)
     is_subscriber = models.BooleanField(default=True)
 
@@ -37,6 +38,9 @@ class User(AbstractUser):
         else:
             return "Subscribe"
 
+
+    def __str__(self):
+        return self.name
 
 def set_username(sender, instance, **kwargs):
     # Check if the user is new (not being updated)

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'config',
     'medical',
     'User',
+    'editorial_body',
     'ArtAndLiterature',
     'ckeditor',
     'ckeditor_uploader',

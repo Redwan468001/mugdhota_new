@@ -15,7 +15,7 @@
         <div class="cnt_management_page flex">
 
             <div class="writer_menu width_20">
-                {% include 'user_nav.html' %}
+                {% include 'm_nav.html' %}
             </div>
 
             <div class="user_profile_section width_80">
@@ -26,6 +26,7 @@
                             <tr>
                                 <th>No</th>
                                 <th>Content</th>
+                                <th>Status</th>
                                 <th>Delete</th>
                                 <th>Edit</th>
                             </tr>
@@ -33,9 +34,9 @@
                                 <tr>
                                     <td>{{ forloop.counter }}</td>
                                     <td>{{ post.title }}</td>
+                                    <td>{{ post.status.name }}</td>
                                     <td><a href="{% url 'deletecontent' post.slug %}"><i class="fa-solid fa-xmark"></i></a></td>
-                                    <td><a href="{% url 'edit_art_content' post.slug %}">Edit</a></td>
-                                    <td><a href="{% url 'editorial_edit_content' post.slug %}">Editorial Edit</a></td>
+                                    <td><a href="{% url 'editorial_edit_content' post.slug %}">View</a></td>
                                 </tr>
                             {% endfor %}
                         </table>

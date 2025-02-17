@@ -1,0 +1,92 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container_full">
+    <div class="container" style="width:100%">
+        <div class="cnt_management_page flex">
+
+            <div class="writer_menu width_20">
+                {% include 'm_nav.html' %}
+            </div>
+
+            <div class="upload_content_form_section width_80">
+                <div class="content_upload_form_sec">
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                        <div class="content_upload_section flex">
+
+                            <div class="content_upload_form width_70 res_width_100">
+                                <div class="form_field">
+                                    <h2>Title</h2>
+                                    {{ form.title }}
+                                </div>
+                                <div class="form_field">
+                                    <h2>Author</h2>
+                                    {{ form.author }}
+                                </div>
+                                <div class="form_field">
+                                    <h2>Content</h2>
+                                    {{ form.media }}
+                                    {{ form.content }}
+                                </div>
+                                <div class="form_field">
+                                    <h2>Comment</h2>
+                                    {{ form.revised_comment }}
+                                </div>
+                            </div>
+
+                            <div class="content_upload_form width_30 res_width_100">
+                                <div class="form_field">
+                                    <h2>Change Status</h2>
+                                    {{ form.status }}
+                                </div>
+                                <div class="form_field_cat">
+                                    <h2>Category</h2>
+                                        {% for category in form.category %}
+                                        <div>
+                                            {{ category.tag }} {{ category.choice_label }}
+                                        </div>
+                                    {% endfor %}
+                                </div>
+
+                                <div class="form_field_cat">
+                                    <h2>Tag</h2>
+                                        {% for tag in form.tags %}
+                                        <div>
+                                            {{ tag.tag }} {{ tag.choice_label }}
+                                        </div>
+                                        {% endfor %}
+                                    <p>
+                                        <label for="{{ form.new_tag.id_for_label }}">{{ form.new_tags.label }}</label><br>
+                                        {{ form.new_tags }}
+                                        <small>{{ form.new_tags.help_text }}</small>
+                                    </p>
+                                </div>
+
+                                <div class="form_field">
+                                    <h2>Feature Image</h2>
+                                    {{ object.feature_image }}
+                                    <div class="f_img">
+                                        {% if form.instance.feature_image %}
+                                            <img src="{{ form.instance.feature_image.url }}" alt="Feature Image" width="150">
+                                        {% endif %}
+                                    </div>
+                                    {{ form.feature_image }}
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <button class="submit_button_cu" type="submit">Submit</button>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

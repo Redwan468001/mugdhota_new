@@ -2,6 +2,7 @@ from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField
 from config.models import ContentStatus, Tag
 from User.models import User
+from config.models import RevisedBy, RevisedComment
 
 
 # Create your models here.
@@ -25,8 +26,10 @@ class ArtAndLiterature(models.Model):
     create_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
     views = models.IntegerField(default=1)
-    status = models.ForeignKey(ContentStatus, on_delete=models.CASCADE, blank=True, null=True, default=1)
-    tags = models.ManyToManyField(Tag)
+    status = models.ForeignKey(ContentStatus, on_delete=models.CASCADE, blank=True, null=True, default=2)
+    tags = models.ManyToManyField(Tag, blank=True)
+    reviewed_by = models.CharField(max_length=255, blank=True, null=True)
+    reviewed_comments = models.ForeignKey(RevisedComment, on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):
         return f"{self.title} - {self.author}"

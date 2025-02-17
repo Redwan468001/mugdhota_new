@@ -264,40 +264,18 @@
                     <div class="wrapper_right_content">
                         <div class="wrapper_right_cnt">
 
-                            <div class="sng_wrc_sec">
-                                <div class="sng_wrc">
-                                    <h2>1</h2>
-                                    <h3><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit</a></h3>
-                                </div>
-                            </div>
+                            {% for post in most_popular_posts %}
 
                             <div class="sng_wrc_sec">
                                 <div class="sng_wrc">
-                                    <h2>2</h2>
-                                    <h3><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit</a></h3>
+                                    <a href="{% url 'universalsinglepost' post.slug %}" class="flex">
+                                        <h2>{{ forloop.counter }}</h2>
+                                        <h3>{{ post.title }} - {{post.views}}</h3>
+                                    </a>
                                 </div>
                             </div>
 
-                            <div class="sng_wrc_sec">
-                                <div class="sng_wrc">
-                                    <h2>3</h2>
-                                    <h3><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit</a></h3>
-                                </div>
-                            </div>
-
-                            <div class="sng_wrc_sec">
-                                <div class="sng_wrc">
-                                    <h2>4</h2>
-                                    <h3><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit</a></h3>
-                                </div>
-                            </div>
-
-                            <div class="sng_wrc_sec">
-                                <div class="sng_wrc">
-                                    <h2>5</h2>
-                                    <h3><a href="#">Lorem ipsum dolor sit amet, consectetur adipiscing elit</a></h3>
-                                </div>
-                            </div>
+                            {% endfor %}
 
                         </div>
                     </div>

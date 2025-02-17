@@ -3,5 +3,5 @@ from . import views
 
 urlpatterns = [
     path('', views.home, name='home'),
-    path('art-and-literature/', include('ArtAndLiterature.urls'))
+    path('<str:slug>', views.universalsinglepost, name='universalsinglepost'),
 ]
