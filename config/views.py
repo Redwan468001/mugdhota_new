@@ -1,33 +1,27 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from itertools import chain
-from ArtAndLiterature.models import ArtAndLiterature
-from medical.models import MedicalInsight
+from content.models import Content
 from django.utils.timezone import now, timedelta, datetime
 
 # Create your views here.
 def home(request):
-    posts = ArtAndLiterature.objects.filter(status=1).order_by('-create_at')
+    posts = Content.objects.filter(status=1).order_by('-create_at')
     stories = []
     novels = []
     for post in posts:
-        if post.category.name == 'Novel':
+        if post.sub_category.name == 'Novel':
             novels.append(post)
-        elif post.category.name == 'Story':
+        elif post.sub_category.name == 'Story':
             stories.append(post)
 
-    medicals = MedicalInsight.objects.filter(status=1).order_by('-create_at')
-
-
     art_posts = posts.order_by('-views')
-    medi_posts = medicals.order_by('-views')
 
-    most_popular_posts = sorted(chain(art_posts, medi_posts), key=lambda post:post.views, reverse=True)
+    most_popular_posts = sorted(art_posts, key=lambda post:post.views, reverse=True)
 
     context = {
         'posts': posts,
         'novels': novels,
         'stories': stories,
-        'medicals': medicals,
         'most_popular_posts': most_popular_posts,
     }
     return render(request, 'index.html', context)
@@ -45,16 +39,15 @@ def get_client_ip(request):
 
 
 # Universal Single Post
-def universalsinglepost(request, slug):
+def singlepost(request, slug):
 
-    all_posts = ArtAndLiterature.objects.all()
+    all_posts = Content.objects.all()
     categories = []
     for post in all_posts:
         if post.category not in categories:
             categories.append(post.category)
 
-    post = (ArtAndLiterature.objects.filter(slug=slug).first() or
-            MedicalInsight.objects.filter(slug=slug).first())
+    post = get_object_or_404(Content, slug=slug)
     tags = post.tags
 
     client_ip = get_client_ip(request)  # Get user's IP address

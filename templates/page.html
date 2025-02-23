@@ -8,8 +8,8 @@
             
             <div class="page_info">
                 <div class="page_title">
-                    {% if category_obj %}
-                    <h2>{{category_obj}}</h2>
+                    {% if p_category_obj %}
+                    <h2>{{p_category_obj}}</h2>
                     {% else %}
                     <h2>{{title}}</h2>
                     {% endif %}
@@ -22,9 +22,9 @@
                             <a href="{% url 'artandliterature' %}" class="{% if not category_obj %}active_cat{% endif %}">
                                 <i class="fa-regular fa-circle"></i> All
                             </a>
-                            {% for category in categories %}
+                            {% for category in sub_categories %}
                                 <a href="{% url 'singlecategory' category.name %}" class="{% if category_obj.name == category.name %}active_cat{% endif %}">
-                                    <i class="fa-regular fa-circle"></i> {{category}}
+                                    <i class="fa-regular fa-circle"></i> {{ category.name }}
                                 </a>
                             {% endfor %}
                         </div>

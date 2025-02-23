@@ -33,7 +33,10 @@
                                 </div>
                                 <div class="form_field">
                                     <h2>Comment</h2>
-                                    {{ form.revised_comment }}
+                                    {{ reviewedcommentform.management_form }}
+                                    {% for rc in reviewedcommentform %}
+                                    {{ rc.as_p }}
+                                    {% endfor %}
                                 </div>
                             </div>
 

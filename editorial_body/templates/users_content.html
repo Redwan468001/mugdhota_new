@@ -21,28 +21,28 @@
             <div class="user_profile_section width_80">
                 <div class="user_profile">
 
-                    <div class="user_content refuge_user_content" style="width:100%">
+                    <div class="user_content">
                         <table>
                             <tr>
                                 <th style="width:3%">No</th>
-                                <th style="width:30%">Content</th>
-                                <th style="width:10%">Reviewed By</th>
-                                <th style="width:47%">Reason</th>
-                                <th style="width:5%">Delete</th>
-                                <th style="width:5%">Edit</th>
+                                <th style="width:40%">Content</th>
+                                <th style="width:8%">Category</th>
+                                <th style="width:8%">Writer</th>
+                                <th style="width:8%">Status</th>
+                                <th style="width:17%">Date</th>
+                                <th style="width:8%">Delete</th>
+                                <th style="width:8%">Edit</th>
                             </tr>
                             {% for post in all_posts %}
                                 <tr>
                                     <td>{{ forloop.counter }}</td>
                                     <td>{{ post.title }}</td>
-                                    <td>{{ post.reviewed_by }}</td>
-                                    <td>
-                                        {% for pc in post.reviewed_comments.all %}
-                                        <p> {{forloop.counter}}. {{ pc }}</p>
-                                        {% endfor %}
-                                    </td>
+                                    <td>{{ post.sub_category }}</td>
+                                    <td>{{ post.writer }}</td>
+                                    <td>{{ post.status.name }}</td>
+                                    <td>{{ post.create_at }}</td>
                                     <td><a href="{% url 'deletecontent' post.slug %}"><i class="fa-solid fa-xmark"></i></a></td>
-                                    <td><a href="{% url 'editorial_edit_content' post.slug %}">Edit</a></td>
+                                    <td><a href="{% url 'editorial_edit_content' post.slug %}">View</a></td>
                                 </tr>
                             {% endfor %}
                         </table>

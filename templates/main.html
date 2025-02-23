@@ -548,7 +548,6 @@
     </script>
 
     <!-- Overview navigations -->
-
     <script>
         
         // Script for Manu
@@ -651,7 +650,26 @@
         
     </script>
     
-
+    <!--Load Jeson-->
+    <script>
+        $(document).ready(function () {
+            $("#id_category").change(function () {
+                var categoryId = $(this).val();
+                $.ajax({
+                    url: "{% url 'ajax_load_subcategories' %}",
+                    data: {
+                        'category_id': categoryId
+                    },
+                    success: function (data) {
+                        $("#id_sub_category").html('<option value="">Select Sub Category</option>');
+                        $.each(data, function (index, subCategory) {
+                            $("#id_sub_category").append('<option value="' + subCategory.id + '">' + subCategory.name + '</option>');
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 
 </body>
 </html>

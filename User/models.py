@@ -22,7 +22,7 @@ class User(AbstractUser):
     gender = models.ForeignKey(Gender, on_delete=models.CASCADE, blank=True, null=True)
     joined = models.DateField(auto_now=True)
 
-    # User Controler
+    # User Controller
     is_admin = models.BooleanField(default=False)
     is_editor = models.BooleanField(default=False)
     is_author = models.BooleanField(default=False)
@@ -36,7 +36,7 @@ class User(AbstractUser):
         elif self.is_author:
             return "Author"
         else:
-            return "Subscribe"
+            return "Subscriber"
 
 
     def __str__(self):

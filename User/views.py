@@ -1,10 +1,9 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth import login, logout, authenticate, get_user_model
-from ArtAndLiterature.models import ArtAndLiterature
-from medical.models import MedicalInsight
+from content.models import Content
 from . models import User
-from . forms import UserCreationForm
+from . forms import UserCreationF
 import random
 from itertools import chain
 
@@ -14,9 +13,7 @@ from itertools import chain
 def userDashboard(request, username):
     user = get_object_or_404(User, username=username)
 
-    art_posts = ArtAndLiterature.objects.filter(writer=user)
-    medicals = MedicalInsight.objects.filter(writer=user)
-    posts = list(chain(art_posts, medicals))
+    posts = Content.objects.filter(writer=user)
     total_posts = len(posts)
     published_posts = []
     pending_posts = []
@@ -48,10 +45,8 @@ def userDashboard(request, username):
 # Total Posts
 def user_total_content(request, username):
     user = get_object_or_404(User, username=username)
-    art_posts = ArtAndLiterature.objects.filter(writer=user)
-    medi_posts = MedicalInsight.objects.filter(writer=user)
+    all_posts = Content.objects.filter(writer=user)
 
-    all_posts = list(chain(art_posts, medi_posts))
     context = {
         'user': user,
         'all_posts': all_posts,
@@ -63,10 +58,8 @@ def user_total_content(request, username):
 # Published Post
 def user_published_content(request, username):
     user = get_object_or_404(User, username=username)
-    art_posts = ArtAndLiterature.objects.filter(writer=user, status=1)
-    medi_posts = MedicalInsight.objects.filter(writer=user, status=1)
+    all_posts = Content.objects.filter(writer=user, status=1)
 
-    all_posts = list(chain(art_posts, medi_posts))
     count = len(all_posts)
     context = {
         'user': user,
@@ -74,16 +67,14 @@ def user_published_content(request, username):
         'count': count,
     }
 
-    return render(request, 'user_content.html', context)
+    return render(request, 'users_content.html', context)
 
 
 # Pending Post
 def user_pending_content(request, username):
     user = get_object_or_404(User, username=username)
-    art_posts = ArtAndLiterature.objects.filter(writer=user, status=2)
-    medi_posts = MedicalInsight.objects.filter(writer=user, status=2)
+    all_posts = Content.objects.filter(writer=user, status=2)
 
-    all_posts = list(chain(art_posts, medi_posts))
     count = len(all_posts)
     context = {
         'user': user,
@@ -91,17 +82,15 @@ def user_pending_content(request, username):
         'count': count,
     }
 
-    return render(request, 'user_content.html', context)
+    return render(request, 'users_content.html', context)
 
 
 # Refuge Post
 def user_refuge_content(request, username):
     user = get_object_or_404(User, username=username)
-    art_posts = ArtAndLiterature.objects.filter(writer=user, status=3)
-    medi_posts = MedicalInsight.objects.filter(writer=user, status=3)
+    all_posts = Content.objects.filter(writer=user, status=3)
 
-    all_posts = list(chain(art_posts, medi_posts))
-    count = art_posts.count()
+    count = all_posts.count()
     context = {
         'user': user,
         'all_posts': all_posts,
@@ -114,7 +103,7 @@ def user_refuge_content(request, username):
 # User Registration from
 def user_registration(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = UserCreationF(request.POST)
         if form.is_valid():
             phone_number = form.cleaned_data.get('phone')
 
@@ -141,7 +130,7 @@ def user_registration(request):
             return redirect('verify_otp')
 
     else:
-        form = UserCreationForm()
+        form = UserCreationF()
 
     return render(request, 'registration.html', {'form': form})
 

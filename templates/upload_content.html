@@ -37,11 +37,12 @@
 
                                 <div class="form_field_cat">
                                     <h2>Category</h2>
-                                        {% for category in form.category %}
-                                        <div>
-                                            {{ category.tag }} {{ category.choice_label }}
-                                        </div>
-                                    {% endfor %}
+                                    {{ form.category }}
+                                </div>
+
+                                <div class="form_field_cat">
+                                    <h2>Category</h2>
+                                    {{ form.sub_category }}
                                 </div>
 
                                 <div class="form_field_cat">

@@ -39,12 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'config',
-    'medical',
     'User',
     'editorial_body',
-    'ArtAndLiterature',
     'ckeditor',
     'ckeditor_uploader',
+    'content',
 ]
 
 MIDDLEWARE = [
@@ -78,7 +77,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'mugdhota.wsgi.application'
-
 
 
 AUTH_USER_MODEL = 'User.User'

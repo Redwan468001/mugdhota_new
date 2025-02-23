@@ -1,7 +1,5 @@
 from django import forms
-from ArtAndLiterature.models import ArtAndLiterature
-from config.models import Tag
-from ArtAndLiterature.models import Category
+from content.models import Content, Tag, Category, ReviewedComment
 
 
 class EditUserUploadedContent(forms.ModelForm):
@@ -22,8 +20,8 @@ class EditUserUploadedContent(forms.ModelForm):
     new_tags = forms.CharField(required=False, widget=forms.TextInput(attrs={'placeholder': 'Enter new tags separated by commas'}))
 
     class Meta:
-        model = ArtAndLiterature
-        fields = ['title', 'author', 'content', 'feature_image', 'category', 'tags', 'status', 'reviewed_comments']
+        model = Content
+        fields = ['title', 'author', 'content', 'feature_image', 'category', 'tags', 'status']
         widgets = {
             'feature_image': forms.ClearableFileInput(attrs={'accept': 'image/*'}),
         }
@@ -32,3 +30,12 @@ class EditUserUploadedContent(forms.ModelForm):
             new_tags = self.cleaned_data.get('new_tags', '').split(',')
             return [tag.strip() for tag in new_tags if tag.strip()]
 
+
+class Reviewedcommentform(forms.ModelForm):
+    class Meta:
+        model = ReviewedComment
+        fields = ['comment']
+
+reviewedcommentformset = forms.inlineformset_factory(
+    Content, ReviewedComment, form=Reviewedcommentform, extra=1, can_delete=True
+)
